@@ -1,0 +1,14 @@
+@use "../global" as *;
+@use "../foundation/var" as *;
+
+.l-instagram {
+  width: 96%;
+  margin: 0 auto 80px;
+
+  @include responsive-down(md) {
+    margin: 80px auto 80px;
+  }
+  @include responsive-down(sm) {
+    margin: 20% auto 80px;
+  }
+}

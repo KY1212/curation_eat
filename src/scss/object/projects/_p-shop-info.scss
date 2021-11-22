@@ -1,0 +1,15 @@
+@use "../../global" as *;
+
+.p-shop-info {
+  text-align: center;
+}
+
+.p-shop-info__map {
+  margin-top: 30px;
+  width: 100%;
+}
+
+iframe {
+  height: 356px;
+  width: 100%;
+}

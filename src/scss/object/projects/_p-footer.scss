@@ -1,0 +1,79 @@
+@use "../../global" as *;
+@use "../../foundation/var" as *;
+
+.p-footer {
+  display: flex;
+  justify-content: space-between;
+
+  @include responsive-down(lg) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.p-footer__left {
+  display: flex;
+  @include responsive-down(lg) {
+    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.p-footer__logo {
+  height: 96px;
+  width: 74px;
+  @include responsive-down(lg) {
+    margin-top: 50px;
+    height: 119px;
+    width: 91px;
+  }
+}
+
+.p-footer__details {
+  font-family: $default-font-family;
+  letter-spacing: 0.65px;
+  line-height: 23px;
+  margin-left: 40px;
+  font-weight: 700;
+
+  @include responsive-down(lg) {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+.p-footer__right {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include responsive-down(lg) {
+    align-items: center;
+    margin-top: 30px;
+  }
+}
+
+.fa-phone-alt {
+  color: #333;
+  margin-right: 20px;
+
+  &::before {
+    background-color: #fff;
+    border-radius: 9999px;
+    display: block;
+    height: 30px;
+    padding-top: 6px;
+    width: 30px;
+  }
+}
+
+.p-footer__copyright {
+  font-family: $default-font-family;
+
+  @include responsive-down(lg) {
+    margin-top: 15px;
+    letter-spacing: 2.5px;
+  }
+}

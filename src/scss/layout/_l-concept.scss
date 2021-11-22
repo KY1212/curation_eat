@@ -1,0 +1,25 @@
+@use "../global" as *;
+@use "../foundation/var" as *;
+
+.l-concept {
+  height: 925px;
+  margin-top: 80px;
+  margin-left: 200px;
+  margin-bottom: 80px;
+  margin-right: 200px;
+  @include responsive-down(xl) {
+    height: unset;
+    margin-top: calc(80 / 1200 * 100vw);
+    margin-left: calc(200 / 1200 * 100vw);
+    margin-right: calc(200 / 1200 * 100vw);
+    margin-bottom: calc(420 / 1200 * 100vw);
+  }
+
+  @include responsive-down(md) {
+    height: unset;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: calc(280 / 768 * 100vw);
+    margin-bottom: calc(880 / 768 * 100vw);
+  }
+}

@@ -1,0 +1,10 @@
+@use "../global" as *;
+@use "../foundation/var" as *;
+
+.l-footer {
+  padding: 55px 23px 30px;
+
+  @include responsive-down(lg) {
+    padding: 55px 100px 70px;
+  }
+}

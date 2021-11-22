@@ -1,0 +1,13 @@
+@use "../../foundation/var" as *;
+
+@mixin responsive-up($breakpoint) {
+  @media #{inspect(map-get($breakpoints-up, $breakpoint))} {
+    @content;
+  }
+}
+
+@mixin responsive-down($breakpoint) {
+  @media #{inspect(map-get($breakpoints-down, $breakpoint))} {
+    @content;
+  }
+}

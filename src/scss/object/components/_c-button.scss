@@ -1,0 +1,21 @@
+@use "../../global" as *;
+@use "../../foundation/var" as *;
+
+.c-button {
+  background-color: #afafaf;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-family: $MinionPro-Regular;
+  font-size: 16.2px;
+  font-weight: bold;
+  height: 46px;
+  line-height: 1em;
+  margin-top: 54px;
+  opacity: 1;
+  padding-top: 15px;
+  position: relative;
+  text-align: center;
+  width: 240px;
+}

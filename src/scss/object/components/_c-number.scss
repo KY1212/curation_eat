@@ -1,0 +1,30 @@
+@use "../../global" as *;
+@use "../../foundation/var" as *;
+
+.c-number {
+  align-items: center;
+  background-color: #333;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  font-family: $default-font-family;
+  font-size: 18px;
+  font-weight: 700;
+  height: 48px;
+  justify-content: left;
+  padding: 20px;
+  text-align: center;
+  width: 270px;
+}
+
+.u-margin {
+  margin-top: 30px;
+}
+
+.u-show-hide {
+  display: none;
+
+  @include responsive-down(md) {
+    display: flex;
+  }
+}

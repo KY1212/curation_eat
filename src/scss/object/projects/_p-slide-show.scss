@@ -1,0 +1,42 @@
+@use "../../global" as *;
+@use "../../foundation/var" as *;
+
+.l-slide-show {
+}
+
+.p-slide-show {
+  width: 90%;
+  margin: auto;
+}
+
+.p-slide-show__focus {
+  height: calc(590 / 1200 * 100vw);
+  overflow: hidden;
+  position: relative;
+  @include responsive-down(md) {
+  }
+}
+
+.p-slide-show__slides {
+  position: relative;
+}
+
+.p-slide-show__slide {
+  position: absolute;
+  // animation-duration: 2s;
+  // visibility: visible;
+  transition: opacity 2s;
+}
+
+.is-active {
+  //   animation-duration: 2s;
+  //   visibility: hidden;
+  opacity: 0;
+}
+
+.p-slide-show__navigation {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 15px;
+}

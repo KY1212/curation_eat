@@ -1,0 +1,72 @@
+@use "../../global" as *;
+@use "../../foundation/var" as *;
+
+.p-instagram {
+  display: flex;
+  justify-content: center;
+
+  @include responsive-down(md) {
+    flex-direction: column;
+  }
+}
+
+.p-instagram__content-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.p-instagram__pictures {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include responsive-up(md) {
+    margin-top: 30px;
+    width: 465px;
+  }
+
+  @include responsive-down(md) {
+    margin: 30px auto 0;
+    width: 94%;
+  }
+}
+
+.p-instagram__picture {
+  & + & {
+    margin-left: 30px;
+  }
+
+  &:nth-child(n + 4) {
+    margin-top: 30px;
+  }
+
+  &:nth-child(4) {
+    margin-left: 0;
+  }
+  @include responsive-up(md) {
+    height: 135px;
+    width: 135px;
+  }
+  @include responsive-down(md) {
+    width: calc(33.33% - 20px);
+  }
+}
+
+.p-instagram__dish-image {
+  display: flex;
+  align-items: center;
+  // position: absolute;
+  @include responsive-up(md) {
+    margin-left: 120px;
+    width: calc(38.8% - 120px);
+    // width: calc(443 / 1200 * 100vw);
+    // height: calc(443 / 1200 * 100vw);
+  }
+
+  @include responsive-down(md) {
+    flex-direction: column;
+    margin: 15% auto 0;
+    width: 94%;
+  }
+}

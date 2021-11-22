@@ -1,0 +1,13 @@
+@use "../../global" as *;
+@use "../../foundation/var" as *;
+
+.c-heading {
+  font-family: $MinionPro-Regular;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+
+  @include responsive-down(md) {
+    font-size: calc(30 / 768 * 100vw);
+  }
+}

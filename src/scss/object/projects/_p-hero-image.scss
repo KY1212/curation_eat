@@ -1,0 +1,93 @@
+@use "../../global" as *;
+@use "../../foundation/var" as *;
+
+.p-hero-image {
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.scrolldown1 {
+  bottom: 120px;
+  height: 50px;
+  left: 100px;
+  position: absolute;
+
+  &::after {
+    animation: pathmove 1.4s ease-in-out infinite;
+    background: #eee;
+    content: "";
+    height: 30px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+}
+
+.scrolldown1 span {
+  bottom: 50px;
+  color: #eee;
+  font-family: $MinionPro-Regular;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  position: absolute;
+  right: -26px;
+}
+
+@keyframes pathmove {
+  0% {
+    height: 0;
+    opacity: 0;
+    top: 0;
+  }
+
+  30% {
+    height: 30px;
+    opacity: 1;
+  }
+
+  100% {
+    height: 0;
+    opacity: 0;
+    top: 50px;
+  }
+}
+
+.hero-image__wrap {
+  display: flex;
+}
+
+.p-hero-image__company-details {
+  top: 100px;
+  color: #fff;
+  // display: block;
+  font-family: $MinionPro-Regular;
+  font-size: 14px;
+  letter-spacing: 1.3px;
+  position: absolute;
+  right: calc(70 / 1400 * 100vw);
+  text-align: end;
+
+  @include responsive-down(md) {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    top: 700px;
+    right: calc(70 / 768 * 100vw);
+  }
+}
+
+.p-hero-image__address {
+  line-height: 25px;
+}
+.p-hero-image__number {
+  margin-top: 6px;
+}

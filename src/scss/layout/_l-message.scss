@@ -1,0 +1,11 @@
+@use "../global" as *;
+@use "../foundation/var" as *;
+
+.l-message {
+  background-color: #f5f5f5;
+  padding: 80px 150px 800px;
+
+  @include responsive-down(lg) {
+    padding: 80px 35px 800px;
+  }
+}
