@@ -62,31 +62,29 @@ $(function () {
   const slideShow = () => {
     const $focus = $(".p-slide-show__focus");
     const $slide = $(".p-slide-show__slide");
-    const slideLength = $slide.length;
+    let slideLength = $slide.length;
     const $prev = $(".p-slide-show__prev");
     const $next = $(".p-slide-show__next");
-    const indicatorHTML = '<li class="indicatorItem"></li>';
-
     let currentIndex = 0;
-    // console.log(slideLength);
+    const $currentPage = $(".p-slide-show__current-page");
 
     let changeSlide = () => {
-      console.log(currentIndex);
-
       $slide.addClass("is-active");
       $slide.eq(currentIndex).removeClass("is-active");
+      $currentPage.text((currentIndex+1) + " / 5");
 
-      if (currentIndex == slideLength) {
+      if (currentIndex >= slideLength) {
         currentIndex = 0;
         $slide.addClass("is-active");
         $slide.eq(currentIndex).removeClass("is-active");
+        $currentPage.text((currentIndex + 1) + " / 5");
 
       } else if (currentIndex == -1) {
         currentIndex = slideLength-1;
         $slide.addClass("is-active");
-        $slide.eq(slideLength-1).removeClass("is-active");
+        $slide.eq(currentIndex).removeClass("is-active");
+        $currentPage.text(currentIndex + " / 5");
       }
-
     }
 
     let prevSlide = () => {

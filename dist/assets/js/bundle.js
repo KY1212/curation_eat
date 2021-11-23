@@ -11040,29 +11040,39 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
   const slideShow = () => {
     const $focus = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__focus");
     const $slide = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__slide");
-    const slideLength = $slide.length;
+    let slideLength = $slide.length;
     const $prev = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__prev");
     const $next = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__next");
-    const indicatorHTML = '<li class="indicatorItem"></li>';
 
     let currentIndex = 0;
+    // let currentPageHTML = '<p class="p-slide-show__navigation"></p>';
+    const $currentPage = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__current-page");
+
     // console.log(slideLength);
+    // $currentPage.text(currentIndex+" / 5");
 
     let changeSlide = () => {
-      console.log(currentIndex);
-
       $slide.addClass("is-active");
       $slide.eq(currentIndex).removeClass("is-active");
+      $currentPage.text((currentIndex+1) + " / 5");
+      console.log(currentIndex+"out");
 
-      if (currentIndex == slideLength) {
+      if (currentIndex >= slideLength) {
         currentIndex = 0;
         $slide.addClass("is-active");
         $slide.eq(currentIndex).removeClass("is-active");
+        $currentPage.text((currentIndex+1) + " / 5");
+      console.log(currentIndex+"next");
+
 
       } else if (currentIndex == -1) {
+        console.log(currentIndex+"prev-1");
         currentIndex = slideLength-1;
         $slide.addClass("is-active");
-        $slide.eq(slideLength-1).removeClass("is-active");
+        $slide.eq(currentIndex).removeClass("is-active");
+        $currentPage.text(currentIndex + " / 5");
+        console.log(currentIndex+"prev-2");
+
       }
 
     }
