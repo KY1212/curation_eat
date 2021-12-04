@@ -5,70 +5,51 @@
   display: flex;
   justify-content: end;
   position: relative;
-
-  @include responsive-down(md) {
-    flex-direction: column;
+  @include responsive-down(sm) {
+    justify-content: center;
   }
-}
-
-.p-message__image-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  width: 450px;
-  width: calc(450 / 1200 * 100vw);
 }
 
 .p-message__image {
   position: absolute;
   &:nth-child(1) {
-    // right: 830px;
-    // top: 80px;
-    // width: 440px;
-    // @include responsive-down(xl) {
-    height: calc(830 / 1200 * 100vw);
     right: calc(680 / 1200 * 100vw);
     top: calc(50 / 1200 * 100vw);
     width: calc(440 / 1200 * 100vw);
-    // }
+    @include responsive-down(sm) {
+      right: calc(80 / 576 * 100vw);
+      top: calc(650 / 576 * 100vw);
+      width: calc(440 / 576 * 100vw);
+    }
   }
 
   &:nth-child(2) {
-    // height: 342px;
-    // right: 990px;
-    // top: 340px;
-    // width: 347px;
-    // @include responsive-down(xl) {
-    height: calc(342 / 1200 * 100vw);
     right: calc(860 / 1200 * 100vw);
     top: calc(310 / 1200 * 100vw);
     width: calc(347 / 1200 * 100vw);
-    // }
+    @include responsive-down(sm) {
+      right: calc(250 / 576 * 100vw);
+      top: calc(910 / 576 * 100vw);
+      width: calc(347 / 576 * 100vw);
+    }
   }
 
   &:nth-child(3) {
-    // height: 302px;
-    // right: 700px;
-    // top: 500px;
-    // width: 228px;
-    // @include responsive-down(xl) {
-    height: calc(302 / 1200 * 100vw);
     right: calc(600 / 1200 * 100vw);
     top: calc(500 / 1200 * 100vw);
     width: calc(228 / 1200 * 100vw);
-    // }
+    @include responsive-down(sm) {
+      right: calc(10 / 576 * 100vw);
+      top: calc(1000 / 576 * 100vw);
+      width: calc(214 / 576 * 100vw);
+    }
   }
 }
 
 .p-message__details-wrap {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  @include responsive-down(md) {
-    margin-left: 0;
+  margin-right: calc(50 / 1400 * 100vw);
+  @include responsive-down(sm) {
+    margin: 0;
   }
 }
 
@@ -78,8 +59,16 @@
   line-height: calc(34 / 1200 * 100vw);
   margin-top: calc(30 / 1200 * 100vw);
   font-size: calc(14 / 1200 * 100vw);
-
-  @include responsive-down(md) {
-    font-size: 12px;
+  @include responsive-down(sm) {
+    letter-spacing: calc(2 / 576 * 100vw);
+    line-height: calc(25 / 576 * 100vw);
+    margin-top: calc(30 / 576 * 100vw);
+    font-size: calc(12 / 576 * 100vw);
+  }
+  @include responsive-down(xs) {
+    letter-spacing: calc(2 / 375 * 100vw);
+    line-height: calc(25 / 375 * 100vw);
+    margin-top: calc(30 / 375 * 100vw);
+    font-size: calc(12 / 375 * 100vw);
   }
 }

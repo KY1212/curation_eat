@@ -5,12 +5,14 @@
   background-color: #f5f5f5;
   padding: 80px 50px 100px;
   position: relative;
-  height: calc(950 / 1200 * 100vw);
-
-  // @include responsive-down(xl) {
-  //   padding-top: calc(80 / 1200 * 100vw);
-  //   padding-right: calc(35 / 1200 * 100vw);
-  //   padding-left: calc(35 / 1200 * 100vw);
-  //   padding-bottom: calc(800 / 1200 * 100vw);
-  // }
+  // height: calc(950 / 1200 * 100vw);
+  @include responsive-down(xl) {
+    padding-top: calc(60 / 1200 * 100vw);
+    padding-left: calc(50 / 1200 * 100vw);
+    padding-right: calc(50 / 1200 * 100vw);
+    padding-bottom: calc(60 / 1200 * 100vw);
+  }
+  @include responsive-down(sm) {
+    height: calc(1450 / 576 * 100vw);
+  }
 }
