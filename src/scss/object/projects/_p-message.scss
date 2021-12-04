@@ -8,7 +8,7 @@
   @include responsive-down(sm) {
     justify-content: center;
   }
-} //
+}
 
 .p-message__image {
   position: absolute;
@@ -69,6 +69,6 @@
     letter-spacing: calc(2 / 375 * 100vw);
     line-height: calc(25 / 375 * 100vw);
     margin-top: calc(30 / 375 * 100vw);
-    font-size: calc(12 / 375 * 100vw);
+    font-size: calc(32 / 375 * 100vw);
   }
 }
