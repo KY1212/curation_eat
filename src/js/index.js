@@ -1,5 +1,6 @@
 import "../scss/style.scss";
 import $ from "jquery";
+// import progressbarjs from "progressbar.js"
 
 $(function () {
   const fadeUpAnimation = () => {
@@ -7,6 +8,7 @@ $(function () {
     const fadeDownAnimeTrigger = $(".is-fadeDownAnimeTrigger");
     const fadeLeftAnimeTrigger = $(".is-fadeLeftAnimeTrigger");
     const fadeRightAnimeTrigger = $(".is-fadeRightAnimeTrigger");
+
     $(window).on("scroll", function () {
       fadeUpAnimeTrigger.each(function () {
         let position = $(this).offset().top;
@@ -62,17 +64,16 @@ $(function () {
   const slideShow = () => {
     const $focus = $(".p-slide-show__focus");
     const $slide = $(".p-slide-show__slide");
-    const slideLength = $slide.length;
+    let slideLength = $slide.length;
     const $prev = $(".p-slide-show__prev");
     const $next = $(".p-slide-show__next");
-    const indicatorHTML = '<li class="indicatorItem"></li>';
-
+    const $currentPage = $(".p-slide-show__current-page");
+    const $navigation = $(".p-slide-show__navigation");
     let currentIndex = 0;
-    // console.log(slideLength);
+    const interval = 10;
+    let timer;
 
     let changeSlide = () => {
-      console.log(currentIndex);
-
       $slide.addClass("is-active");
       $slide.eq(currentIndex).removeClass("is-active");
 
@@ -80,13 +81,17 @@ $(function () {
         currentIndex = 0;
         $slide.addClass("is-active");
         $slide.eq(currentIndex).removeClass("is-active");
+        $currentPage.text((currentIndex + 1) + " / 5");
 
       } else if (currentIndex == -1) {
         currentIndex = slideLength-1;
         $slide.addClass("is-active");
-        $slide.eq(slideLength-1).removeClass("is-active");
-      }
+        $slide.eq(currentIndex).removeClass("is-active");
+        $currentPage.text((currentIndex+1) + " / 5");
+      } else {
+        $currentPage.text((currentIndex + 1) + " / 5");
 
+      }
     }
 
     let prevSlide = () => {
@@ -99,12 +104,38 @@ $(function () {
       changeSlide();
     }
 
-    $prev.on("click", prevSlide);
-    $next.on("click", nextSlide);
+    const progress = () => {
+      if (document.getElementById('bar').value < 100) {
+        document.getElementById('bar').value++;
+      }
+      else if (document.getElementById('bar').value == 100) {
+        document.getElementById('bar').value = 0;
+        nextSlide();
+      }
+    }
+
+    const startTimer = () => {
+      timer = setInterval(progress, interval);
+    }
+
+    const stopTimer = () => {
+      clearInterval(timer);
+    }
+
+    const setEvent = () => {
+      $navigation.on({
+        mouseenter: stopTimer,
+        mouseleave: startTimer
+      })
+      $prev.on("click", prevSlide);
+      $next.on("click", nextSlide);
+    }
+
+    startTimer();
+    setEvent();
   }
 
   slideShow();
-
   fadeUpAnimation();
   toggleAction();
 });
