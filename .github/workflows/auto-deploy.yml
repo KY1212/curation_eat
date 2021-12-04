@@ -1,0 +1,17 @@
+on: push
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      uses: actions/checkout@v2
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      env:
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}     # FTPサーバーのURLを設定
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }} # FTPのユーザー名を設定
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
+        LOCAL_DIR: dist                           # どのディレクトリのデータをアップロードするか
+        REMOTE_DIR: ./      # ロリポップ！FTPサーバのどのディレクトリにアップロードするか
+        ARGS: --delete
