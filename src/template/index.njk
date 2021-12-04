@@ -159,31 +159,38 @@ slug: "top"
     </div>
 
     <div class="p-slide-show__navigation">
-      <p class="p-slide-show__duration">=========</p>
-
+      <progress
+        class="p-progress"
+        id="bar"
+        min="0"
+        max="100"
+        value="0"
+      ></progress>
       <p class="p-slide-show__current-page">1 / 5</p>
-      <p class="p-slide-show__prev">
-        <img src="{{ root }}/assets/img/slider-left.png" alt="" />
-      </p>
-      <p class="p-slide-show__next">
-        <img src="{{ root }}/assets/img/slider-right.png" alt="" />
-      </p>
+      <div class="p-slide-show__arrow-wrap">
+        <a class="p-slide-show__arrow">
+          <img src="{{ root }}/assets/img/slider-left.png" alt="" />
+        </a>
+        <a class="p-slide-show__arrow">
+          <img src="{{ root }}/assets/img/slider-right.png" alt="" />
+        </a>
+      </div>
     </div>
   </div>
 </section>
 <section class="l-message">
+  <p class="p-message__image is-fadeLeftAnimeTrigger">
+    <img src="{{ root }}/assets/img/curation_message03.jpg" alt="" />
+  </p>
+  <p class="p-message__image is-fadeDownAnimeTrigger">
+    <img src="{{ root }}/assets/img/curation_food03.png" alt="" />
+  </p>
+  <p class="p-message__image is-fadeUpAnimeTrigger">
+    <img src="{{ root }}/assets/img/curation_message02.jpg" alt="" />
+  </p>
   <div class="p-message">
-    <div class="p-message__image-wrap">
-      <p class="p-message__image is-fadeLeftAnimeTrigger">
-        <img src="{{ root }}/assets/img/curation_message03.jpg" alt="" />
-      </p>
-      <p class="p-message__image is-fadeDownAnimeTrigger">
-        <img src="{{ root }}/assets/img/curation_food03.png" alt="" />
-      </p>
-      <p class="p-message__image is-fadeUpAnimeTrigger">
-        <img src="{{ root }}/assets/img/curation_message02.jpg" alt="" />
-      </p>
-    </div>
+    <!-- <div class="p-message__image-wrap"> -->
+    <!-- </div> -->
     <div class="p-message__details-wrap">
       <p class="c-heading">message</p>
       <p class="p-message__description is-fadeDownAnimeTrigger">
@@ -194,11 +201,11 @@ slug: "top"
         またテイクアウトカウンターがあり、<br />
         地域の方々にも、遠くから来られた方にも<br />
         気軽に楽しんでいただける場所です。<br />
-        夜にはディナータイムのお食事はもちろん、<br />
+        夜にはディナータイムのお食事はもちろん、<br /><br />
         農家さんや生産者さん、<br />
         ソムリエさんなどをお招きして、<br />
         食材のストーリーを知り、<br />
-        より食を楽しめるようなイベントを開催予定です。<br />
+        より食を楽しめるようなイベントを開催予定です。<br /><br />
         2階の多目的スペースでは、<br />
         ご家族でのお祝いやご友人の小パーティ、<br />
         地域の農家さんのマーケット、<br />

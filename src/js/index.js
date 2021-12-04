@@ -1,5 +1,6 @@
 import "../scss/style.scss";
 import $ from "jquery";
+// import progressbarjs from "progressbar.js"
 
 $(function () {
   const fadeUpAnimation = () => {
@@ -7,6 +8,7 @@ $(function () {
     const fadeDownAnimeTrigger = $(".is-fadeDownAnimeTrigger");
     const fadeLeftAnimeTrigger = $(".is-fadeLeftAnimeTrigger");
     const fadeRightAnimeTrigger = $(".is-fadeRightAnimeTrigger");
+
     $(window).on("scroll", function () {
       fadeUpAnimeTrigger.each(function () {
         let position = $(this).offset().top;
@@ -65,15 +67,17 @@ $(function () {
     let slideLength = $slide.length;
     const $prev = $(".p-slide-show__prev");
     const $next = $(".p-slide-show__next");
-    let currentIndex = 0;
     const $currentPage = $(".p-slide-show__current-page");
+    const $navigation = $(".p-slide-show__navigation");
+    let currentIndex = 0;
+    const interval = 10;
+    let timer;
 
     let changeSlide = () => {
       $slide.addClass("is-active");
       $slide.eq(currentIndex).removeClass("is-active");
-      $currentPage.text((currentIndex+1) + " / 5");
 
-      if (currentIndex >= slideLength) {
+      if (currentIndex == slideLength) {
         currentIndex = 0;
         $slide.addClass("is-active");
         $slide.eq(currentIndex).removeClass("is-active");
@@ -83,7 +87,10 @@ $(function () {
         currentIndex = slideLength-1;
         $slide.addClass("is-active");
         $slide.eq(currentIndex).removeClass("is-active");
-        $currentPage.text(currentIndex + " / 5");
+        $currentPage.text((currentIndex+1) + " / 5");
+      } else {
+        $currentPage.text((currentIndex + 1) + " / 5");
+
       }
     }
 
@@ -97,12 +104,38 @@ $(function () {
       changeSlide();
     }
 
-    $prev.on("click", prevSlide);
-    $next.on("click", nextSlide);
+    const progress = () => {
+      if (document.getElementById('bar').value < 100) {
+        document.getElementById('bar').value++;
+      }
+      else if (document.getElementById('bar').value == 100) {
+        document.getElementById('bar').value = 0;
+        nextSlide();
+      }
+    }
+
+    const startTimer = () => {
+      timer = setInterval(progress, interval);
+    }
+
+    const stopTimer = () => {
+      clearInterval(timer);
+    }
+
+    const setEvent = () => {
+      $navigation.on({
+        mouseenter: stopTimer,
+        mouseleave: startTimer
+      })
+      $prev.on("click", prevSlide);
+      $next.on("click", nextSlide);
+    }
+
+    startTimer();
+    setEvent();
   }
 
   slideShow();
-
   fadeUpAnimation();
   toggleAction();
 });

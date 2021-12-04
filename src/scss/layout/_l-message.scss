@@ -3,9 +3,14 @@
 
 .l-message {
   background-color: #f5f5f5;
-  padding: 80px 150px 800px;
+  padding: 80px 50px 100px;
+  position: relative;
+  height: calc(950 / 1200 * 100vw);
 
-  @include responsive-down(lg) {
-    padding: 80px 35px 800px;
-  }
+  // @include responsive-down(xl) {
+  //   padding-top: calc(80 / 1200 * 100vw);
+  //   padding-right: calc(35 / 1200 * 100vw);
+  //   padding-left: calc(35 / 1200 * 100vw);
+  //   padding-bottom: calc(800 / 1200 * 100vw);
+  // }
 }

@@ -10978,6 +10978,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
 
+// import progressbarjs from "progressbar.js"
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
   const fadeUpAnimation = () => {
@@ -10985,6 +10986,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     const fadeDownAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeDownAnimeTrigger");
     const fadeLeftAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeLeftAnimeTrigger");
     const fadeRightAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeRightAnimeTrigger");
+
     jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("scroll", function () {
       fadeUpAnimeTrigger.each(function () {
         let position = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).offset().top;
@@ -11043,38 +11045,31 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     let slideLength = $slide.length;
     const $prev = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__prev");
     const $next = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__next");
-
-    let currentIndex = 0;
-    // let currentPageHTML = '<p class="p-slide-show__navigation"></p>';
     const $currentPage = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__current-page");
-
-    // console.log(slideLength);
-    // $currentPage.text(currentIndex+" / 5");
+    const $navigation = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__navigation");
+    let currentIndex = 0;
+    const interval = 10;
+    let timer;
 
     let changeSlide = () => {
       $slide.addClass("is-active");
       $slide.eq(currentIndex).removeClass("is-active");
-      $currentPage.text((currentIndex+1) + " / 5");
-      console.log(currentIndex+"out");
 
-      if (currentIndex >= slideLength) {
+      if (currentIndex == slideLength) {
         currentIndex = 0;
         $slide.addClass("is-active");
         $slide.eq(currentIndex).removeClass("is-active");
-        $currentPage.text((currentIndex+1) + " / 5");
-      console.log(currentIndex+"next");
-
+        $currentPage.text((currentIndex + 1) + " / 5");
 
       } else if (currentIndex == -1) {
-        console.log(currentIndex+"prev-1");
         currentIndex = slideLength-1;
         $slide.addClass("is-active");
         $slide.eq(currentIndex).removeClass("is-active");
-        $currentPage.text(currentIndex + " / 5");
-        console.log(currentIndex+"prev-2");
+        $currentPage.text((currentIndex+1) + " / 5");
+      } else {
+        $currentPage.text((currentIndex + 1) + " / 5");
 
       }
-
     }
 
     let prevSlide = () => {
@@ -11087,12 +11082,38 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
       changeSlide();
     }
 
-    $prev.on("click", prevSlide);
-    $next.on("click", nextSlide);
+    const progress = () => {
+      if (document.getElementById('bar').value < 100) {
+        document.getElementById('bar').value++;
+      }
+      else if (document.getElementById('bar').value == 100) {
+        document.getElementById('bar').value = 0;
+        nextSlide();
+      }
+    }
+
+    const startTimer = () => {
+      timer = setInterval(progress, interval);
+    }
+
+    const stopTimer = () => {
+      clearInterval(timer);
+    }
+
+    const setEvent = () => {
+      $navigation.on({
+        mouseenter: stopTimer,
+        mouseleave: startTimer
+      })
+      $prev.on("click", prevSlide);
+      $next.on("click", nextSlide);
+    }
+
+    startTimer();
+    setEvent();
   }
 
   slideShow();
-
   fadeUpAnimation();
   toggleAction();
 });
