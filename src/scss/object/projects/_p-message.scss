@@ -22,9 +22,9 @@
       width: calc(440 / 576 * 100vw);
     }
     @include responsive-down(xs) {
-      right: calc(80 / 375 * 100vw);
-      top: calc(1220 / 375 * 100vw);
-      width: calc(440 / 375 * 100vw);
+      right: calc(50 / 375 * 100vw);
+      top: calc(1050 / 375 * 100vw);
+      width: calc(300 / 375 * 100vw);
     }
   }
 
@@ -38,9 +38,9 @@
       width: calc(347 / 576 * 100vw);
     }
     @include responsive-down(xs) {
-      right: calc(250 / 375 * 100vw);
-      top: calc(1480 / 375 * 100vw);
-      width: calc(347 / 375 * 100vw);
+      right: calc(168 / 375 * 100vw);
+      top: calc(1220 / 375 * 100vw);
+      width: calc(253 / 375 * 100vw);
     }
   }
 
@@ -54,9 +54,9 @@
       width: calc(214 / 576 * 100vw);
     }
     @include responsive-down(xs) {
-      right: calc(10 / 375 * 100vw);
-      top: calc(1300 / 375 * 100vw);
-      width: calc(214 / 375 * 100vw);
+      right: calc(-4 / 375 * 100vw);
+      top: calc(1310 / 375 * 100vw);
+      width: calc(158 / 375 * 100vw);
     }
   }
 }
