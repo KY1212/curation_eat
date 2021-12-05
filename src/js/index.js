@@ -8,9 +8,7 @@ $(function () {
   const getScreenHeight = () => {
     console.log(document.documentElement.clientHeight);
     const screenHeight = document.documentElement.clientHeight;
-    console.log("unko");
-
-    $(".l-hero-image").css({
+    $(".p-hero-image").css({
       height: screenHeight + "px"
     });
   }

@@ -10986,8 +10986,6 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
   const getScreenHeight = () => {
     console.log(document.documentElement.clientHeight);
     const screenHeight = document.documentElement.clientHeight;
-    console.log("unko");
-
     jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-hero-image").css({
       height: screenHeight + "px"
     });
