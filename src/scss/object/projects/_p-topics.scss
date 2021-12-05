@@ -67,12 +67,11 @@
   }
 
   @include responsive-down(md) {
-    width: calc(50% - 20px);
     &:nth-child(2n) {
-      margin-left: 20px;
+      margin-left: 30px;
     }
     &:nth-child(n + 3) {
-      margin-top: 25px;
+      margin-top: 30px;
     }
   }
 }
