@@ -116,8 +116,10 @@
     width: calc(260 / 768 * 100vw);
   }
   @include responsive-down(sm) {
-    height: calc(170 / 576 * 100vw);
-    width: calc(240 / 576 * 100vw);
+    // height: calc(170 / 576 * 100vw);
+    // width: calc(240 / 576 * 100vw);
+    height: 170px;
+    width: 240px;
   }
 }
 

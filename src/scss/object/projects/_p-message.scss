@@ -81,9 +81,13 @@
     font-size: calc(14 / 576 * 100vw);
   }
   @include responsive-down(xs) {
-    letter-spacing: calc(2 / 375 * 100vw);
-    line-height: calc(25 / 375 * 100vw);
-    margin-top: calc(30 / 375 * 100vw);
-    font-size: calc(14 / 375 * 100vw);
+    // letter-spacing: calc(2 / 375 * 100vw);
+    // line-height: calc(25 / 375 * 100vw);
+    // margin-top: calc(30 / 375 * 100vw);
+    // font-size: calc(14 / 375 * 100vw);
+    letter-spacing: 2px;
+    line-height: 25px;
+    margin-top: 30px;
+    font-size: 14px;
   }
 }
