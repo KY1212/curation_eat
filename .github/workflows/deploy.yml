@@ -25,5 +25,5 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_ACCOUNT }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           LOCAL_DIR: /curation-eat-ky/dist
-          REMOTE_DIR: /
+          git-ftp-args: --remote-root /
           ARGS: --delete
