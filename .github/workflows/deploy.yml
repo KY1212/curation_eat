@@ -61,7 +61,7 @@ jobs:
           #key: ${{ secrets.SSH_PRIVATE_KEY}}
           #port: ${{ secrets.FTP_PORT}}
           local-dir: ./Users/ky1212/Desktop/curation-eat-ky/dist
-          git-ftp-args: --remote-root ./curation_eat
+          git-ftp-args: --remote-root ./
           #script: |
           #cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
           #git pull origin master
