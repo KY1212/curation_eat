@@ -97,9 +97,9 @@ jobs:
         uses: appleboy/ssh-action@master
         # uses: SamKirkland/ssh-Deploy-Action@3.0.0
         with:
-          ssh-server: ${{ secrets.SSH_SERVER }}
-          ssh-account: ${{ secrets.SSH_ACCOUNT }}
-          ssh-password: ${{ secrets.SSH_PASSWORD }}
+          host: ${{ secrets.SSH_SERVER }}
+          username: ${{ secrets.SSH_ACCOUNT }}
+          password: ${{ secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           port: ${{ secrets.SSH_PORT}}
           # local-dir: /Users/ky1212/Desktop/curation-eat-ky
