@@ -1,0 +1,29 @@
+name: ftp upload
+on:
+  push:
+    branches:
+      - master
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      - name: Use Node.js 12.13
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: Build Project
+        run: |
+          yarn
+          yarn build
+
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_ACCOUNT }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          LOCAL_DIR: dist
+          REMOTE_DIR: /
+          ARGS: --delete
