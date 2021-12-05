@@ -104,5 +104,5 @@ jobs:
           # local-dir: /Users/ky1212/Desktop/curation-eat-ky
           # git-ftp-args: /
           script: |
-          cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
+          cd /curation_eat
           git pull origin master
