@@ -2,7 +2,20 @@ import "../scss/style.scss";
 import $ from "jquery";
 // import progressbarjs from "progressbar.js"
 
+
 $(function () {
+
+  const getScreenHeight = () => {
+    console.log(document.documentElement.clientHeight);
+    const screenHeight = document.documentElement.clientHeight;
+    console.log("unko");
+
+    $(".l-hero-image").css({
+      height: screenHeight + "px"
+    });
+  }
+  getScreenHeight();
+
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = $(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = $(".is-fadeDownAnimeTrigger");
