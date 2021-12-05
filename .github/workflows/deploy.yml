@@ -24,7 +24,7 @@ jobs:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_ACCOUNT }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: /curation-eat-ky/dist
+          local-dir: https://github.com/KY1212/curation_eat
           git-ftp-args: --remote-root /
           ARGS: --delete
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
