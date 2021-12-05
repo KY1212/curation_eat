@@ -67,6 +67,7 @@ html {
  */
 body {
   color: $font_black;
+  -webkit-overflow-scrolling: touch;
   // min-width: 1441px;
 }
 
