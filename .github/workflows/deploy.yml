@@ -68,3 +68,41 @@ jobs:
           #script: |
           #cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
           #git pull origin master
+
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: "12.x"
+      - name: Build Project
+        run: |
+          yarn
+          yarn build
+      - name: List output files
+        run: |
+          ls -a
+          pwd
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/ssh-Deploy-Action@3.0.0
+        env:
+          ssh-server: ${{ secrets.SSH_SERVER }}
+          ssh-account: ${{ secrets.SSH_ACCOUNT }}
+          ssh-password: ${{ secrets.SSH_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY}}
+          port: ${{ secrets.SSH_PORT}}
+          # local-dir: /Users/ky1212/Desktop/curation-eat-ky
+          # git-ftp-args: /
+          script: |
+          cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
+          git pull origin master
