@@ -16,9 +16,26 @@
 
 .p-topics__title {
   font-family: $MinionPro-Regular;
-  font-size: calc(26 / 1200 * 100vw);
-  letter-spacing: calc(1.3 / 1200 * 100vw);
-  margin-top: calc(10 / 1200 * 100vw);
+  font-size: 26px;
+  letter-spacing: 1.3px;
+  margin-top: 10px;
+  @include responsive-down(xl) {
+    font-size: calc(26 / 1200 * 100vw);
+    letter-spacing: calc(1.3 / 1200 * 100vw);
+    margin-top: calc(10 / 1200 * 100vw);
+  }
+
+  @include responsive-down(md) {
+    font-size: calc(26 / 768 * 100vw);
+    letter-spacing: calc(1.3 / 768 * 100vw);
+    margin-top: calc(10 / 768 * 100vw);
+  }
+
+  @include responsive-down(sm) {
+    font-size: calc(26 / 576 * 100vw);
+    letter-spacing: calc(1.3 / 576 * 100vw);
+    margin-top: calc(10 / 576 * 100vw);
+  }
   text-align: center;
 }
 
@@ -54,7 +71,6 @@
 
 .p-topics__post {
   font-family: $default-font-family;
-
   a {
     display: block;
     cursor: pointer;
@@ -65,13 +81,20 @@
       margin-left: 20px;
     }
   }
-
   @include responsive-down(md) {
     &:nth-child(2n) {
-      margin-left: 30px;
+      margin-left: calc(30 / 768 * 100vw);
     }
     &:nth-child(n + 3) {
-      margin-top: 30px;
+      margin-top: calc(30 / 768 * 100vw);
+    }
+  }
+  @include responsive-down(sm) {
+    &:nth-child(2n) {
+      margin-left: calc(30 / 576 * 100vw);
+    }
+    &:nth-child(n + 3) {
+      margin-top: calc(30 / 576 * 100vw);
     }
   }
 }
@@ -82,11 +105,8 @@
   background-position: center center;
   background-size: cover;
   color: #fff;
-
-  @include responsive-up(xl) {
-    width: 260px;
-    height: 180px;
-  }
+  width: 260px;
+  height: 180px;
   @include responsive-down(xl) {
     height: calc(180 / 1200 * 100vw);
     width: calc(260 / 1200 * 100vw);
@@ -94,6 +114,10 @@
   @include responsive-down(md) {
     height: calc(180 / 768 * 100vw);
     width: calc(260 / 768 * 100vw);
+  }
+  @include responsive-down(sm) {
+    height: calc(170 / 576 * 100vw);
+    width: calc(240 / 576 * 100vw);
   }
 }
 
@@ -113,6 +137,11 @@
     letter-spacing: calc(1.3 / 768 * 100vw);
     margin-top: calc(15 / 768 * 100vw);
   }
+  @include responsive-down(sm) {
+    font-size: calc(18 / 576 * 100vw);
+    letter-spacing: calc(1.3 / 576 * 100vw);
+    margin-top: calc(15 / 576 * 100vw);
+  }
 }
 
 .p-topics__icon {
@@ -122,6 +151,9 @@
     }
     @include responsive-down(md) {
       width: calc(58 / 768 * 100vw);
+    }
+    @include responsive-down(sm) {
+      width: calc(58 / 576 * 100vw);
     }
   }
   text-align: center;
@@ -137,6 +169,10 @@
   @include responsive-down(md) {
     font-size: calc(14 / 768 * 100vw);
     margin-top: calc(10 / 768 * 100vw);
+  }
+  @include responsive-down(sm) {
+    font-size: calc(14 / 576 * 100vw);
+    margin-top: calc(10 / 576 * 100vw);
   }
 }
 
