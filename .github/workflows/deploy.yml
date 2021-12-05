@@ -31,43 +31,43 @@
 
 # For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
 
-name: Node.js Package
+# name: Node.js Package
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: "12.x"
-      - name: Build Project
-        run: |
-          yarn
-          yarn build
-      - name: List output files
-        run: |
-          ls -a
-          pwd
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.0.0
-        with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-account: ${{ secrets.FTP_ACCOUNT }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          #key: ${{ secrets.SSH_PRIVATE_KEY}}
-          #port: ${{ secrets.FTP_PORT}}
-          local-dir: /Users/ky1212/Desktop/curation-eat-ky
-          git-ftp-args: /
-          #script: |
-          #cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
-          #git pull origin master
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js 12.x
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: "12.x"
+#       - name: Build Project
+#         run: |
+#           yarn
+#           yarn build
+#       - name: List output files
+#         run: |
+#           ls -a
+#           pwd
+#       - name: FTP-Deploy-Action
+#         uses: SamKirkland/FTP-Deploy-Action@3.0.0
+#         with:
+#           ftp-server: ${{ secrets.FTP_SERVER }}
+#           ftp-account: ${{ secrets.FTP_ACCOUNT }}
+#           ftp-password: ${{ secrets.FTP_PASSWORD }}
+#           #key: ${{ secrets.SSH_PRIVATE_KEY}}
+#           #port: ${{ secrets.FTP_PORT}}
+#           local-dir: /Users/ky1212/Desktop/curation-eat-ky
+#           git-ftp-args: /
+#           #script: |
+#           #cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
+#           #git pull origin master
 
 name: Node.js Package
 
