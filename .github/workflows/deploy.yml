@@ -24,6 +24,6 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_ACCOUNT }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: curation-dist-ky/dist
+          LOCAL_DIR: /curation-eat-ky/dist
           REMOTE_DIR: /
           ARGS: --delete
