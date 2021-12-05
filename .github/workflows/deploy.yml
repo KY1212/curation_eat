@@ -93,8 +93,9 @@ jobs:
         run: |
           ls -a
           pwd
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/ssh-Deploy-Action@3.0.0
+      - name: ssh-Deploy-Action
+        uses: appleboy/ssh-action@master
+        # uses: SamKirkland/ssh-Deploy-Action@3.0.0
         with:
           ssh-server: ${{ secrets.SSH_SERVER }}
           ssh-account: ${{ secrets.SSH_ACCOUNT }}
