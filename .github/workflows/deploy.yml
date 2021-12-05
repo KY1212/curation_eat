@@ -99,7 +99,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_SERVER }}
           username: ${{ secrets.SSH_ACCOUNT }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          # password: ${{ secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           port: ${{ secrets.SSH_PORT}}
           # local-dir: /Users/ky1212/Desktop/curation-eat-ky
