@@ -60,7 +60,7 @@ jobs:
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           #key: ${{ secrets.SSH_PRIVATE_KEY}}
           #port: ${{ secrets.FTP_PORT}}
-          local-dir: /curation-eat-ky/
+          local-dir: github.com/KY1212/curation_eat
           git-ftp-args: --remote-root ./
           #script: |
           #cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
