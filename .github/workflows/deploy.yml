@@ -25,4 +25,4 @@ jobs:
           username: ${{ secrets.FTP_ACCOUNT }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: /curation-eat-ky/
-          server-dir: /curation_eat
+          server-dir: /curation_eat/
