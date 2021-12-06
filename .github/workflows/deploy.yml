@@ -1,109 +1,28 @@
-# name: ftp upload
-# on:
-#   push:
-#     branches:
-#       - master
-# jobs:
-#   FTP-Deploy-Action:
-#     name: FTP-Deploy-Action
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@master
-#       - uses: SamKirkland/FTP-Deploy-Action@3.0.0
-#       - name: Use Node.js 12.x
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: "12.x"
-
-#       - name: Build Project
-#         run: |
-#           yarn
-#           yarn build
-
-#         with:
-#           ftp-server: ${{ secrets.FTP_SERVER }}
-#           ftp-username: ${{ secrets.FTP_ACCOUNT }}
-#           ftp-password: ${{ secrets.FTP_PASSWORD }}
-#           local-dir: /curation-eat-ky/
-#           git-ftp-args: --remote-root /
-#           ARGS: --delete
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
-
-# name: Node.js Package
-
-# on:
-#   push:
-#     branches:
-#       - master
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Use Node.js 12.x
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: "12.x"
-#       - name: Build Project
-#         run: |
-#           yarn
-#           yarn build
-#       - name: List output files
-#         run: |
-#           ls -a
-#           pwd
-#       - name: FTP-Deploy-Action
-#         uses: SamKirkland/FTP-Deploy-Action@3.0.0
-#         with:
-#           ftp-server: ${{ secrets.FTP_SERVER }}
-#           ftp-account: ${{ secrets.FTP_ACCOUNT }}
-#           ftp-password: ${{ secrets.FTP_PASSWORD }}
-#           #key: ${{ secrets.SSH_PRIVATE_KEY}}
-#           #port: ${{ secrets.FTP_PORT}}
-#           local-dir: /Users/ky1212/Desktop/curation-eat-ky
-#           git-ftp-args: /
-#           #script: |
-#           #cd /home/users/0/chillout.jp-stag-ing-e2v-ky/web
-#           #git pull origin master
-
-name: Node.js Package
-
-on:
-  push:
-    branches:
-      - master
-
+on: push
+name: 🚀 Deploy website on push
 jobs:
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v2
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v2-beta
         with:
-          node-version: "12.x"
-      - name: Build Project
+          node-version: "12"
+
+      - name: 🔨 Build Project
         run: |
           yarn
           yarn build
-      - name: List output files
-        run: |
-          ls -a
-          pwd
-      - name: ssh-Deploy-Action
-        uses: appleboy/ssh-action@master
-        # uses: SamKirkland/ssh-Deploy-Action@3.0.0
-        env:
-          host: ${{ secrets.SSH_SERVER }}
-          username: ${{ secrets.SSH_ACCOUNT }}
-          # password: ${{ secrets.SSH_PASSWORD }}
-          password: ${{ secrets.SSH_PASSWORD}}
-          port: ${{ secrets.SSH_PORT}}
-          # local-dir: /Users/ky1212/Desktop/curation-eat-ky
-          # git-ftp-args: /
-          script: |
-            cd /curation_eat
-            git pull origin master
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_ACCOUNT }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist/
+          server-dir: /curation_eat/
