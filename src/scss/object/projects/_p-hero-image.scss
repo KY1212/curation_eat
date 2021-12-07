@@ -2,7 +2,7 @@
 @use "../../foundation/var" as *;
 
 .p-hero-image {
-  // height: 100vh;
+  height: 100vh;
   padding: 20px;
   position: relative;
   width: 100%;
@@ -72,15 +72,15 @@
   font-size: 14px;
   letter-spacing: 1.3px;
   position: absolute;
-  right: calc(70 / 1400 * 100vw);
+  right: 80px;
   text-align: end;
 
   @include responsive-down(md) {
     font-size: 15px;
     display: flex;
     flex-direction: column;
-    top: 700px;
-    right: calc(70 / 768 * 100vw);
+    top: 900px;
+    right: 60px;
   }
 }
 

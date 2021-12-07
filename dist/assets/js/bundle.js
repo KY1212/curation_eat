@@ -10983,15 +10983,6 @@ __webpack_require__.r(__webpack_exports__);
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
 
-  const getScreenHeight = () => {
-    console.log(document.documentElement.clientHeight);
-    const screenHeight = document.documentElement.clientHeight;
-    jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-hero-image").css({
-      height: screenHeight + "px"
-    });
-  }
-  getScreenHeight();
-
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeDownAnimeTrigger");

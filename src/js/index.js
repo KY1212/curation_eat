@@ -5,15 +5,6 @@ import $ from "jquery";
 
 $(function () {
 
-  const getScreenHeight = () => {
-    console.log(document.documentElement.clientHeight);
-    const screenHeight = document.documentElement.clientHeight;
-    $(".p-hero-image").css({
-      height: screenHeight + "px"
-    });
-  }
-  getScreenHeight();
-
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = $(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = $(".is-fadeDownAnimeTrigger");
