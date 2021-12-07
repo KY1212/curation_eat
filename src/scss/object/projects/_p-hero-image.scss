@@ -15,9 +15,9 @@
 }
 
 .scrolldown1 {
-  bottom: 70px;
+  bottom: 30px;
   height: 50px;
-  left: 75px;
+  left: 55px;
   position: absolute;
 
   &::after {
@@ -27,7 +27,6 @@
     height: 30px;
     opacity: 0;
     position: absolute;
-    // top: 0;
     width: 1px;
   }
 }
@@ -35,7 +34,7 @@
 .scrolldown1 span {
   color: #eee;
   font-family: $MinionPro-Regular;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.05em;
   position: absolute;
   top: -20px;
@@ -68,20 +67,26 @@
   font-size: 14px;
   letter-spacing: 1.3px;
   position: absolute;
-  right: 80px;
+  right: 57px;
   text-align: end;
 
   @include responsive-down(md) {
-    font-size: 15px;
+    // font-size: 14px;
     top: unset;
-    bottom: 60px;
-    right: 60px;
+    bottom: 40px;
+    right: 40px;
   }
 }
 
 .p-hero-image__address {
   line-height: 25px;
+  @include responsive-down(md) {
+    line-height: 20px;
+  }
 }
 .p-hero-image__number {
-  margin-top: 6px;
+  line-height: 25px;
+  @include responsive-down(md) {
+    line-height: 20px;
+  }
 }

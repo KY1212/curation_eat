@@ -24,6 +24,10 @@
   img {
     height: 100px;
     width: 100px;
+    @include responsive-down(md) {
+      height: 70px;
+      width: 70px;
+    }
   }
 }
 

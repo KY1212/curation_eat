@@ -114,7 +114,7 @@
     width: calc(260 / 1200 * 100vw);
   }
   @include responsive-down(md) {
-    height: 180px;
+    height: calc(180 / 768 * 100vw);
     width: 100%;
   }
 }
