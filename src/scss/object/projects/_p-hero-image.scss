@@ -15,9 +15,9 @@
 }
 
 .scrolldown1 {
-  bottom: 120px;
+  bottom: 70px;
   height: 50px;
-  left: 100px;
+  left: 75px;
   position: absolute;
 
   &::after {
@@ -27,19 +27,19 @@
     height: 30px;
     opacity: 0;
     position: absolute;
-    top: 0;
+    // top: 0;
     width: 1px;
   }
 }
 
 .scrolldown1 span {
-  bottom: 50px;
   color: #eee;
   font-family: $MinionPro-Regular;
   font-size: 18px;
   letter-spacing: 0.05em;
   position: absolute;
-  right: -26px;
+  top: -20px;
+  left: -20px;
 }
 
 @keyframes pathmove {
@@ -61,10 +61,6 @@
   }
 }
 
-.hero-image__wrap {
-  display: flex;
-}
-
 .p-hero-image__company-details {
   top: 100px;
   color: #fff;
@@ -77,9 +73,8 @@
 
   @include responsive-down(md) {
     font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    top: 900px;
+    top: unset;
+    bottom: 60px;
     right: 60px;
   }
 }
