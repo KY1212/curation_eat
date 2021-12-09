@@ -82,8 +82,4 @@
   @include responsive-down(lg) {
     margin-top: 15px;
   }
-
-  @include responsive-down(lg) {
-    font-size: 10px;
-  }
 }
