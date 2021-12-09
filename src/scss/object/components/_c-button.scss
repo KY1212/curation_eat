@@ -18,4 +18,8 @@
   position: relative;
   text-align: center;
   width: 240px;
+
+  // @include responsive-down(sm) {
+  //   width: 100%;
+  // }
 }

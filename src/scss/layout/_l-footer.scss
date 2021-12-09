@@ -2,9 +2,11 @@
 @use "../foundation/var" as *;
 
 .l-footer {
-  padding: 55px 23px 30px;
+  padding: 60px 0 30px;
+  width: 90%;
+  margin: auto;
 
   @include responsive-down(lg) {
-    padding: 55px 100px 70px;
+    padding: 60px 0 30px;
   }
 }

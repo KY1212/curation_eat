@@ -33,7 +33,7 @@
 
   @include responsive-down(sm) {
     // font-size: calc(26 / 576 * 100vw);
-    font-size: 26px;
+    font-size: 20px;
     letter-spacing: calc(1.3 / 576 * 100vw);
     margin-top: calc(10 / 576 * 100vw);
   }
@@ -72,7 +72,7 @@
 
 .p-topics__post {
   font-family: $default-font-family;
-  width: calc(50% - 15px);
+  width: calc(50% - 10px);
   a {
     display: block;
     cursor: pointer;
@@ -85,10 +85,10 @@
   }
   @include responsive-down(md) {
     &:nth-child(2n) {
-      margin-left: 30px;
+      margin-left: 20px;
     }
     &:nth-child(n + 3) {
-      margin-top: 30px;
+      margin-top: 20px;
     }
   }
   //   @include responsive-down(sm) {
@@ -137,7 +137,7 @@
   }
   @include responsive-down(sm) {
     // font-size: calc(18 / 576 * 100vw);
-    font-size: 18px;
+    font-size: 14px;
     letter-spacing: calc(1.3 / 576 * 100vw);
     margin-top: calc(15 / 576 * 100vw);
   }
@@ -152,7 +152,7 @@
       width: calc(58 / 768 * 100vw);
     }
     @include responsive-down(sm) {
-      width: calc(58 / 576 * 100vw);
+      width: 40px;
     }
   }
   text-align: center;
