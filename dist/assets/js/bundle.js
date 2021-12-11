@@ -10983,6 +10983,37 @@ __webpack_require__.r(__webpack_exports__);
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
 
+  const changeColor = () => {
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("scroll", function () {
+      const $headerItem = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
+      const $topics = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".l-topics");
+      const $logo = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item-logo > img");
+
+      const $changeLogoWhite = jquery__WEBPACK_IMPORTED_MODULE_1___default()("is-change-logo-white");
+      const $changeLogoYellow = jquery__WEBPACK_IMPORTED_MODULE_1___default()("is-change-logo-yellow");
+      const $changeColor = jquery__WEBPACK_IMPORTED_MODULE_1___default()("is-change-color");
+
+      $headerItem.each(function () {
+
+        let scroll = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
+        let heightVH = $topics.offset().top;
+        console.log(heightVH);
+
+        if (scroll > heightVH) {
+          $headerItem.addClass($changeColor);
+          $logo.addClass($changeLogoYellow);
+          $logo.removeClass($changeLogoWhite);
+        } else {
+          $headerItem.removeClass($changeColor);
+          $logo.addClass($changeLogoWhite);
+          $logo.removeClass($changeLogoYellow);
+
+        }
+      });
+    });
+  }
+  changeColor();
+
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeDownAnimeTrigger");
