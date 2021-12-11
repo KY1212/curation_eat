@@ -7,29 +7,43 @@ $(function () {
 
   const changeColor = () => {
     $(window).on("scroll", function () {
-      const $headerItem = $(".p-header__list");
+      const $headerList = $(".p-header__list");
+      const $headerItem = $(".p-header__item");
       const $topics = $(".l-topics");
-      const $logo = $(".p-header__item-logo > img");
+      const $logo = $(".p-header__logo");
+      const $headerLogoWhite = $logo.find(".p-header__logo-white");
+      const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
+      const $hamburger = $(".c-hamburger span");
 
-      const $changeLogoWhite = $("is-change-logo-white");
-      const $changeLogoYellow = $("is-change-logo-yellow");
-      const $changeColor = $("is-change-color");
-
-      $headerItem.each(function () {
-
+      $headerList.each(function () {
         let scroll = $(window).scrollTop();
         let heightVH = $topics.offset().top;
         console.log(heightVH);
 
         if (scroll > heightVH) {
-          $headerItem.addClass($changeColor);
-          $logo.addClass($changeLogoYellow);
-          $logo.removeClass($changeLogoWhite);
+          $headerList.addClass("is-change-color");
+          $hamburger.addClass("is-change-bg-color");
+          $headerItem.css({
+            borderColor: "#333"
+          });
+          $headerLogoYellow.css({
+            display: "block"
+          });
+          $headerLogoWhite.css({
+            display: "none"
+          });
         } else {
-          $headerItem.removeClass($changeColor);
-          $logo.addClass($changeLogoWhite);
-          $logo.removeClass($changeLogoYellow);
-
+          $headerList.removeClass("is-change-color");
+          $hamburger.removeClass("is-change-color");
+          $headerItem.css({
+            borderColor: "#fff"
+          });
+          $headerLogoWhite.css({
+            display: "block"
+          });
+          $headerLogoYellow.css({
+            display: "none"
+          });
         }
       });
     });

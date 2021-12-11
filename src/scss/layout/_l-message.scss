@@ -14,9 +14,9 @@
   }
   @include responsive-down(sm) {
     padding-top: calc(30 / 576 * 100vw);
-    height: calc(1450 / 576 * 100vw);
+    height: calc(1380 / 576 * 100vw);
   }
   @include responsive-down(xs) {
-    height: calc(1400 / 375 * 100vw);
+    height: calc(1220 / 375 * 100vw);
   }
 }

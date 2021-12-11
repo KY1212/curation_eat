@@ -5,7 +5,7 @@
   display: flex;
   justify-content: end;
   position: relative;
-  @include responsive-down(md) {
+  @include responsive-down(sm) {
     justify-content: center;
   }
 }
@@ -23,7 +23,7 @@
     }
     @include responsive-down(xs) {
       right: calc(50 / 375 * 100vw);
-      top: calc(1050 / 375 * 100vw);
+      top: calc(670 / 375 * 100vw);
       width: calc(300 / 375 * 100vw);
     }
   }
@@ -39,7 +39,7 @@
     }
     @include responsive-down(xs) {
       right: calc(168 / 375 * 100vw);
-      top: calc(1220 / 375 * 100vw);
+      top: calc(845 / 375 * 100vw);
       width: calc(253 / 375 * 100vw);
     }
   }
@@ -55,7 +55,7 @@
     }
     @include responsive-down(xs) {
       right: calc(-4 / 375 * 100vw);
-      top: calc(1310 / 375 * 100vw);
+      top: calc(950 / 375 * 100vw);
       width: calc(158 / 375 * 100vw);
     }
   }
@@ -81,13 +81,13 @@
     font-size: calc(14 / 576 * 100vw);
   }
   @include responsive-down(xs) {
-    // letter-spacing: calc(2 / 375 * 100vw);
-    // line-height: calc(25 / 375 * 100vw);
-    // margin-top: calc(30 / 375 * 100vw);
-    // font-size: calc(14 / 375 * 100vw);
-    letter-spacing: 2px;
-    line-height: 25px;
-    margin-top: 30px;
-    font-size: 14px;
+    letter-spacing: calc(2 / 375 * 100vw);
+    line-height: calc(25 / 375 * 100vw);
+    margin-top: calc(30 / 375 * 100vw);
+    font-size: calc(14 / 375 * 100vw);
+    // letter-spacing: 2px;
+    // line-height: 25px;
+    // margin-top: 30px;
+    // font-size: 14px;
   }
 }

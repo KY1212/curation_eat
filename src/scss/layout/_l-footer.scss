@@ -9,4 +9,8 @@
   @include responsive-down(lg) {
     padding: 60px 0 30px;
   }
+
+  // @include responsive-down(md) {
+  //   width: 90%;
+  // }
 }

@@ -7,6 +7,12 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  width: 1000px;
+  margin: auto;
+  @include responsive-down(xxl) {
+    width: unset;
+  }
+
   @include responsive-down(md) {
     padding-top: calc(120 / 768 * 100vw);
   }
@@ -62,6 +68,7 @@
   line-height: 45px;
   margin-top: 30px;
   text-align: center;
+  letter-spacing: 2px;
 
   @include responsive-down(xl) {
     font-size: calc(14 / 1200 * 100vw);
@@ -80,12 +87,10 @@
 .u-food01 {
   position: absolute;
 
-  @include responsive-up(xxl) {
-    left: -60px;
-    top: -120px;
-    width: 358px;
-    height: 362px;
-  }
+  left: -60px;
+  top: -120px;
+  width: 358px;
+  height: 362px;
 
   @include responsive-down(xxl) {
     left: calc(-130 / 1400 * 100vw);
@@ -105,12 +110,10 @@
 .u-cure01 {
   position: absolute;
 
-  @include responsive-up(xxl) {
-    right: -130px;
-    top: 160px;
-    width: 72px;
-    height: 80px;
-  }
+  right: -130px;
+  top: 160px;
+  width: 72px;
+  height: 80px;
 
   @include responsive-down(xxl) {
     right: calc(-120 / 1400 * 100vw);
@@ -130,12 +133,10 @@
 .u-curation_concept02 {
   position: absolute;
 
-  @include responsive-up(xxl) {
-    right: -200px;
-    top: 310px;
-    width: 375px;
-    height: 270px;
-  }
+  right: -200px;
+  top: 310px;
+  width: 375px;
+  height: 270px;
 
   @include responsive-down(xxl) {
     right: calc(-200 / 1400 * 100vw);
@@ -156,12 +157,10 @@
 .u-curation_concept03 {
   position: absolute;
 
-  @include responsive-up(xxl) {
-    right: 120px;
-    top: 535px;
-    width: 220px;
-    height: 300px;
-  }
+  right: 120px;
+  top: 535px;
+  width: 220px;
+  height: 300px;
 
   @include responsive-down(xxl) {
     right: calc(120 / 1400 * 100vw);
@@ -182,12 +181,10 @@
 .u-curation_concept01 {
   position: absolute;
 
-  @include responsive-up(xxl) {
-    left: -90px;
-    width: 420px;
-    height: 300px;
-    top: 490px;
-  }
+  left: -90px;
+  width: 420px;
+  height: 300px;
+  top: 490px;
 
   @include responsive-down(xxl) {
     left: calc(-90 / 1400 * 100vw);
@@ -207,12 +204,10 @@
 .u-cure02 {
   position: absolute;
 
-  @include responsive-up(xxl) {
-    left: 30px;
-    width: 71px;
-    height: 78px;
-    bottom: 60px;
-  }
+  left: 30px;
+  width: 71px;
+  height: 78px;
+  bottom: 60px;
 
   @include responsive-down(xxl) {
     left: calc(30 / 1400 * 100vw);

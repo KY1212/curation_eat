@@ -10985,29 +10985,43 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
 
   const changeColor = () => {
     jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("scroll", function () {
-      const $headerItem = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
+      const $headerList = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
+      const $headerItem = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item");
       const $topics = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".l-topics");
-      const $logo = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item-logo > img");
+      const $logo = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__logo");
+      const $headerLogoWhite = $logo.find(".p-header__logo-white");
+      const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
+      const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span");
 
-      const $changeLogoWhite = jquery__WEBPACK_IMPORTED_MODULE_1___default()("is-change-logo-white");
-      const $changeLogoYellow = jquery__WEBPACK_IMPORTED_MODULE_1___default()("is-change-logo-yellow");
-      const $changeColor = jquery__WEBPACK_IMPORTED_MODULE_1___default()("is-change-color");
-
-      $headerItem.each(function () {
-
+      $headerList.each(function () {
         let scroll = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
         let heightVH = $topics.offset().top;
         console.log(heightVH);
 
         if (scroll > heightVH) {
-          $headerItem.addClass($changeColor);
-          $logo.addClass($changeLogoYellow);
-          $logo.removeClass($changeLogoWhite);
+          $headerList.addClass("is-change-color");
+          $hamburger.addClass("is-change-bg-color");
+          $headerItem.css({
+            borderColor: "#333"
+          });
+          $headerLogoYellow.css({
+            display: "block"
+          });
+          $headerLogoWhite.css({
+            display: "none"
+          });
         } else {
-          $headerItem.removeClass($changeColor);
-          $logo.addClass($changeLogoWhite);
-          $logo.removeClass($changeLogoYellow);
-
+          $headerList.removeClass("is-change-color");
+          $hamburger.removeClass("is-change-color");
+          $headerItem.css({
+            borderColor: "#fff"
+          });
+          $headerLogoWhite.css({
+            display: "block"
+          });
+          $headerLogoYellow.css({
+            display: "none"
+          });
         }
       });
     });

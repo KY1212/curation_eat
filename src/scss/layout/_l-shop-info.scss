@@ -1,5 +1,11 @@
+@use "../global" as *;
+@use "../foundation/var" as *;
+
 .l-shop-info {
   padding: 60px 0 0;
-  width: 90%;
+  width: 800px;
   margin: auto;
+  @include responsive-down(md) {
+    width: 90%;
+  }
 }

@@ -21,7 +21,6 @@
 
 .p-header__logo {
   img {
-    display: none;
     height: 100px;
     width: 100px;
     @include responsive-down(md) {
@@ -30,13 +29,20 @@
     }
   }
 }
+.is-change-color {
+  color: #333;
+}
 
-.is-change-logo-white {
+.is-change-bg-color {
+  background-color: #333;
+}
+
+.p-header__logo-white {
   display: block;
 }
 
-.is-change-logo-yellow {
-  display: block;
+.p-header__logo-yellow {
+  display: none;
 }
 
 .p-header__list-wrap {
@@ -141,8 +147,4 @@
     color: #333;
     margin: 20px 0 0;
   }
-}
-
-.is-change-color {
-  color: #333;
 }
