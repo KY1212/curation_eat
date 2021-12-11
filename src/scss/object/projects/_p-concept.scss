@@ -101,7 +101,7 @@
 
   @include responsive-down(md) {
     left: calc(70 / 768 * 100vw);
-    top: calc(-320 / 768 * 100vw);
+    top: calc(-310 / 768 * 100vw);
     width: calc(358 / 768 * 100vw);
     height: calc(362 / 768 * 100vw);
   }

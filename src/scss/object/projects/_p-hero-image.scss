@@ -61,17 +61,16 @@
 }
 
 .p-hero-image__company-details {
-  top: 100px;
+  top: -130px;
   color: #fff;
   font-family: $MinionPro-Regular;
   font-size: 14px;
   letter-spacing: 1.3px;
   position: absolute;
-  right: 57px;
+  right: 70px;
   text-align: end;
 
   @include responsive-down(md) {
-    // font-size: 14px;
     top: unset;
     bottom: 40px;
     right: 40px;

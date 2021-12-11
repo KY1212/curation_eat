@@ -5,7 +5,7 @@
   display: flex;
   justify-content: end;
   position: relative;
-  @include responsive-down(sm) {
+  @include responsive-down(md) {
     justify-content: center;
   }
 }
@@ -13,14 +13,21 @@
 .p-message__image {
   position: absolute;
   &:nth-child(1) {
+    // @include responsive-down(xl) {
     right: calc(680 / 1200 * 100vw);
     top: calc(50 / 1200 * 100vw);
     width: calc(440 / 1200 * 100vw);
-    @include responsive-down(sm) {
-      right: calc(80 / 576 * 100vw);
-      top: calc(650 / 576 * 100vw);
-      width: calc(440 / 576 * 100vw);
+    // }
+    @include responsive-down(md) {
+      right: calc(185 / 768 * 100vw);
+      top: calc(650 / 768 * 100vw);
+      width: calc(440 / 768 * 100vw);
     }
+    //     @include responsive-down(sm) {
+    //   right: calc(80 / 576 * 100vw);
+    //   top: calc(650 / 576 * 100vw);
+    //   width: calc(440 / 576 * 100vw);
+    // }
     @include responsive-down(xs) {
       right: calc(50 / 375 * 100vw);
       top: calc(670 / 375 * 100vw);
@@ -32,11 +39,17 @@
     right: calc(860 / 1200 * 100vw);
     top: calc(310 / 1200 * 100vw);
     width: calc(347 / 1200 * 100vw);
-    @include responsive-down(sm) {
-      right: calc(250 / 576 * 100vw);
-      top: calc(910 / 576 * 100vw);
-      width: calc(347 / 576 * 100vw);
+
+    @include responsive-down(md) {
+      right: calc(360 / 768 * 100vw);
+      top: calc(910 / 768 * 100vw);
+      width: calc(347 / 768 * 100vw);
     }
+    // @include responsive-down(sm) {
+    //   right: calc(250 / 576 * 100vw);
+    //   top: calc(910 / 576 * 100vw);
+    //   width: calc(347 / 576 * 100vw);
+    // }
     @include responsive-down(xs) {
       right: calc(168 / 375 * 100vw);
       top: calc(845 / 375 * 100vw);
@@ -48,11 +61,16 @@
     right: calc(600 / 1200 * 100vw);
     top: calc(500 / 1200 * 100vw);
     width: calc(228 / 1200 * 100vw);
-    @include responsive-down(sm) {
-      right: calc(10 / 576 * 100vw);
-      top: calc(1000 / 576 * 100vw);
-      width: calc(214 / 576 * 100vw);
+    @include responsive-down(md) {
+      right: calc(110 / 768 * 100vw);
+      top: calc(1000 / 768 * 100vw);
+      width: calc(214 / 768 * 100vw);
     }
+    //     @include responsive-down(sm) {
+    //   right: calc(10 / 576 * 100vw);
+    //   top: calc(1000 / 576 * 100vw);
+    //   width: calc(214 / 576 * 100vw);
+    // }
     @include responsive-down(xs) {
       right: calc(-4 / 375 * 100vw);
       top: calc(950 / 375 * 100vw);
@@ -62,9 +80,12 @@
 }
 
 .p-message__details-wrap {
-  margin-right: calc(50 / 1400 * 100vw);
-  @include responsive-down(sm) {
-    margin: 0;
+  margin-right: calc(200 / 1400 * 100vw);
+  @include responsive-down(md) {
+    margin-right: calc(50 / 768 * 100vw);
+    @include responsive-down(md) {
+      margin: 0;
+    }
   }
 }
 
@@ -74,11 +95,12 @@
   line-height: calc(34 / 1200 * 100vw);
   margin-top: calc(30 / 1200 * 100vw);
   font-size: calc(14 / 1200 * 100vw);
-  @include responsive-down(sm) {
-    letter-spacing: calc(2 / 576 * 100vw);
-    line-height: calc(25 / 576 * 100vw);
-    margin-top: calc(30 / 576 * 100vw);
-    font-size: calc(14 / 576 * 100vw);
+  @include responsive-down(md) {
+    letter-spacing: calc(2 / 768 * 100vw);
+    line-height: calc(25 / 768 * 100vw);
+    margin-top: calc(30 / 768 * 100vw);
+    font-size: calc(16 / 768 * 100vw);
+    // font-size: 14px;
   }
   @include responsive-down(xs) {
     letter-spacing: calc(2 / 375 * 100vw);

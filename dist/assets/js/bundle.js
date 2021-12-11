@@ -10989,9 +10989,10 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
       const $headerItem = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item");
       const $topics = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".l-topics");
       const $logo = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__logo");
+      const $instagram = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__instagram");
+      const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span");
       const $headerLogoWhite = $logo.find(".p-header__logo-white");
       const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
-      const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span");
 
       $headerList.each(function () {
         let scroll = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
@@ -11000,7 +11001,11 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
 
         if (scroll > heightVH) {
           $headerList.addClass("is-change-color");
-          $hamburger.addClass("is-change-bg-color");
+          // $hamburger.addClass("is-change-bg-color");
+          $instagram.addClass("is-change-color");
+          $hamburger.css({
+            backgroundColor: "#333"
+          });
           $headerItem.css({
             borderColor: "#333"
           });
@@ -11012,7 +11017,11 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
           });
         } else {
           $headerList.removeClass("is-change-color");
-          $hamburger.removeClass("is-change-color");
+          // $hamburger.removeClass("is-change-bg-color");
+          $instagram.removeClass("is-change-color");
+          $hamburger.css({
+            backgroundColor: "#fff"
+          });
           $headerItem.css({
             borderColor: "#fff"
           });

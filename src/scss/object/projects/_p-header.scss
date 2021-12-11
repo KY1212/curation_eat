@@ -18,9 +18,17 @@
     width: 80%;
   }
 }
-
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .p-header__logo {
   img {
+    animation: show 0.5s linear 0s;
     height: 100px;
     width: 100px;
     @include responsive-down(md) {
@@ -29,6 +37,7 @@
     }
   }
 }
+
 .is-change-color {
   color: #333;
 }
@@ -125,6 +134,7 @@
   font-size: 18px;
   height: 18px;
   width: 18px;
+  transition: all 0.5s;
 
   @include responsive-down(md) {
     display: block;

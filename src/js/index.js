@@ -11,9 +11,10 @@ $(function () {
       const $headerItem = $(".p-header__item");
       const $topics = $(".l-topics");
       const $logo = $(".p-header__logo");
+      const $instagram = $(".p-header__instagram");
+      const $hamburger = $(".c-hamburger span");
       const $headerLogoWhite = $logo.find(".p-header__logo-white");
       const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
-      const $hamburger = $(".c-hamburger span");
 
       $headerList.each(function () {
         let scroll = $(window).scrollTop();
@@ -22,7 +23,11 @@ $(function () {
 
         if (scroll > heightVH) {
           $headerList.addClass("is-change-color");
-          $hamburger.addClass("is-change-bg-color");
+          // $hamburger.addClass("is-change-bg-color");
+          $instagram.addClass("is-change-color");
+          $hamburger.css({
+            backgroundColor: "#333"
+          });
           $headerItem.css({
             borderColor: "#333"
           });
@@ -34,7 +39,11 @@ $(function () {
           });
         } else {
           $headerList.removeClass("is-change-color");
-          $hamburger.removeClass("is-change-color");
+          // $hamburger.removeClass("is-change-bg-color");
+          $instagram.removeClass("is-change-color");
+          $hamburger.css({
+            backgroundColor: "#fff"
+          });
           $headerItem.css({
             borderColor: "#fff"
           });

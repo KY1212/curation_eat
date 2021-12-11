@@ -3,11 +3,13 @@
 
 .l-footer {
   padding: 60px 0 30px;
-  width: 90%;
+  width: 1000px;
   margin: auto;
 
   @include responsive-down(lg) {
     padding: 60px 0 30px;
+    width: unset;
+    margin: unset;
   }
 
   // @include responsive-down(md) {
