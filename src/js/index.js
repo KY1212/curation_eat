@@ -18,9 +18,7 @@ $(function () {
 
       $headerList.each(function () {
         let scroll = $(window).scrollTop();
-        let heightVH = $topics.offset().top;
-        console.log(heightVH);
-
+        let heightVH = $topics.offset().top-30;
         if (scroll > heightVH) {
           $headerList.addClass("is-change-color");
           // $hamburger.addClass("is-change-bg-color");
@@ -57,7 +55,6 @@ $(function () {
       });
     });
   }
-  changeColor();
 
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = $(".is-fadeUpAnimeTrigger");
@@ -104,14 +101,31 @@ $(function () {
   const toggleAction = () => {
     const $hamburger = $(".c-hamburger");
     const $list = $(".p-header__list");
-
+    let position;
     const clickHamburger = () => {
       $hamburger.toggleClass("is-active");
       $list.toggleClass("is-open");
       if ($list.hasClass("is-open")) {
         $("html").addClass("is-dont-scroll");
+        $(".c-hamburger span").css({
+          backgroundColor: "#333"
+        });
+        $(".p-header__item").css({
+          borderColor: "#333"
+        });
+        position = $(window).scrollTop();
+        $("body").addClass("is-fixed").css({"top": - position});
+
       } else if (!$list.hasClass("is-open")) {
         $("html").removeClass("is-dont-scroll");
+        $(".c-hamburger span").css({
+          backgroundColor: "#fff"
+        });
+        $(".p-header__item").css({
+          borderColor: "#fff"
+        });
+        $("body").removeClass("is-fixed").css({"top": 0});
+        window.scrollTo(0, position);
       }
     }
     $hamburger.on("click", clickHamburger);
@@ -152,15 +166,11 @@ $(function () {
     }
 
     let prevSlide = () => {
-            console.log("prev");
-
       currentIndex--;
       changeSlide();
     }
 
     let nextSlide = () => {
-            console.log("next");
-
       currentIndex++;
       changeSlide();
     }
@@ -195,7 +205,18 @@ $(function () {
     startTimer();
     setEvent();
   }
-
+  const smoothScroll = () => {
+    $('a[href^="#"]').click(function(){
+      var speed = 500;
+      var href= $(this).attr("href");
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top;
+      $("html, body").animate({scrollTop:position}, speed, "swing");
+      return false;
+    });
+  }
+  smoothScroll();
+  changeColor();
   slideShow();
   fadeUpAnimation();
   toggleAction();

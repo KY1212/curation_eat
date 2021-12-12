@@ -10996,9 +10996,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
 
       $headerList.each(function () {
         let scroll = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
-        let heightVH = $topics.offset().top;
-        console.log(heightVH);
-
+        let heightVH = $topics.offset().top-30;
         if (scroll > heightVH) {
           $headerList.addClass("is-change-color");
           // $hamburger.addClass("is-change-bg-color");
@@ -11035,7 +11033,6 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
       });
     });
   }
-  changeColor();
 
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeUpAnimeTrigger");
@@ -11082,14 +11079,31 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
   const toggleAction = () => {
     const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger");
     const $list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
-
+    let position;
     const clickHamburger = () => {
       $hamburger.toggleClass("is-active");
       $list.toggleClass("is-open");
       if ($list.hasClass("is-open")) {
         jquery__WEBPACK_IMPORTED_MODULE_1___default()("html").addClass("is-dont-scroll");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span").css({
+          backgroundColor: "#333"
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item").css({
+          borderColor: "#333"
+        });
+        position = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("body").addClass("is-fixed").css({"top": - position});
+
       } else if (!$list.hasClass("is-open")) {
         jquery__WEBPACK_IMPORTED_MODULE_1___default()("html").removeClass("is-dont-scroll");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span").css({
+          backgroundColor: "#fff"
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item").css({
+          borderColor: "#fff"
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("body").removeClass("is-fixed").css({"top": 0});
+        window.scrollTo(0, position);
       }
     }
     $hamburger.on("click", clickHamburger);
@@ -11130,15 +11144,11 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     }
 
     let prevSlide = () => {
-            console.log("prev");
-
       currentIndex--;
       changeSlide();
     }
 
     let nextSlide = () => {
-            console.log("next");
-
       currentIndex++;
       changeSlide();
     }
@@ -11173,7 +11183,18 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     startTimer();
     setEvent();
   }
-
+  const smoothScroll = () => {
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()('a[href^="#"]').click(function(){
+      var speed = 500;
+      var href= jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr("href");
+      var target = jquery__WEBPACK_IMPORTED_MODULE_1___default()(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top;
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()("html, body").animate({scrollTop:position}, speed, "swing");
+      return false;
+    });
+  }
+  smoothScroll();
+  changeColor();
   slideShow();
   fadeUpAnimation();
   toggleAction();
