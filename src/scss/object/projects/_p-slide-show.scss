@@ -2,15 +2,21 @@
 @use "../../foundation/var" as *;
 
 .p-slide-show {
-  width: 90%;
+  // width: 90%;
+  width: 600px;
   margin: auto;
+  @include responsive-down(md) {
+    width: 90%;
+  }
 }
 
 .p-slide-show__focus {
-  height: calc(590 / 1200 * 100vw);
+  // height: calc(590 / 1200 * 100vw);
+  height: 330px;
   overflow: hidden;
   position: relative;
   @include responsive-down(md) {
+    height: calc(380 / 768 * 100vw);
   }
 }
 
@@ -23,7 +29,7 @@
   transition: opacity 2s;
 }
 
-.is-active {
+.is-hidden-slide {
   opacity: 0;
 }
 
@@ -32,6 +38,9 @@
   justify-content: end;
   align-items: center;
   margin: 15px 50px 0 0;
+  @include responsive-down(md) {
+    margin: 15px 0 0;
+  }
 }
 
 .p-progress {

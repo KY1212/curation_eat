@@ -17,6 +17,6 @@
     height: calc(1380 / 768 * 100vw);
   }
   @include responsive-down(xs) {
-    height: calc(1220 / 375 * 100vw);
+    height: calc(1250 / 375 * 100vw);
   }
 }

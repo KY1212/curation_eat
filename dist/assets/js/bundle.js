@@ -11099,8 +11099,8 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     const $focus = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__focus");
     const $slide = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__slide");
     let slideLength = $slide.length;
-    const $prev = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__prev");
-    const $next = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__next");
+    const $prev = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-prev");
+    const $next = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-next");
     const $currentPage = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__current-page");
     const $navigation = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__navigation");
     let currentIndex = 0;
@@ -11108,19 +11108,20 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     let timer;
 
     let changeSlide = () => {
-      $slide.addClass("is-active");
-      $slide.eq(currentIndex).removeClass("is-active");
+      document.getElementById('bar').value = 0;
 
+      $slide.addClass("is-hidden-slide");
+      $slide.eq(currentIndex).removeClass("is-hidden-slide");
       if (currentIndex == slideLength) {
         currentIndex = 0;
-        $slide.addClass("is-active");
-        $slide.eq(currentIndex).removeClass("is-active");
+        $slide.addClass("is-hidden-slide");
+        $slide.eq(currentIndex).removeClass("is-hidden-slide");
         $currentPage.text((currentIndex + 1) + " / 5");
 
       } else if (currentIndex == -1) {
         currentIndex = slideLength-1;
-        $slide.addClass("is-active");
-        $slide.eq(currentIndex).removeClass("is-active");
+        $slide.addClass("is-hidden-slide");
+        $slide.eq(currentIndex).removeClass("is-hidden-slide");
         $currentPage.text((currentIndex+1) + " / 5");
       } else {
         $currentPage.text((currentIndex + 1) + " / 5");
@@ -11129,11 +11130,15 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     }
 
     let prevSlide = () => {
+            console.log("prev");
+
       currentIndex--;
       changeSlide();
     }
 
     let nextSlide = () => {
+            console.log("next");
+
       currentIndex++;
       changeSlide();
     }

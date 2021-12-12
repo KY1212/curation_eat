@@ -93,8 +93,8 @@
 }
 
 .p-topics__image {
-  background-image: url("./assets/img/post_image_news.jpg");
-  background-image: url("../img/post_image_news.jpg");
+  // background-image: url("./assets/img/post_image_news.jpg");
+  background-image: url("../img/post_img02.png");
   background-position: center center;
   background-size: cover;
   color: #fff;
@@ -105,7 +105,7 @@
     width: calc(260 / 1200 * 100vw);
   }
   @include responsive-down(md) {
-    height: calc(180 / 768 * 100vw);
+    height: calc(210 / 768 * 100vw);
     width: 100%;
   }
 }

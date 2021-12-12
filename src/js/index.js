@@ -121,8 +121,8 @@ $(function () {
     const $focus = $(".p-slide-show__focus");
     const $slide = $(".p-slide-show__slide");
     let slideLength = $slide.length;
-    const $prev = $(".p-slide-show__prev");
-    const $next = $(".p-slide-show__next");
+    const $prev = $(".is-prev");
+    const $next = $(".is-next");
     const $currentPage = $(".p-slide-show__current-page");
     const $navigation = $(".p-slide-show__navigation");
     let currentIndex = 0;
@@ -130,19 +130,20 @@ $(function () {
     let timer;
 
     let changeSlide = () => {
-      $slide.addClass("is-active");
-      $slide.eq(currentIndex).removeClass("is-active");
+      document.getElementById('bar').value = 0;
 
+      $slide.addClass("is-hidden-slide");
+      $slide.eq(currentIndex).removeClass("is-hidden-slide");
       if (currentIndex == slideLength) {
         currentIndex = 0;
-        $slide.addClass("is-active");
-        $slide.eq(currentIndex).removeClass("is-active");
+        $slide.addClass("is-hidden-slide");
+        $slide.eq(currentIndex).removeClass("is-hidden-slide");
         $currentPage.text((currentIndex + 1) + " / 5");
 
       } else if (currentIndex == -1) {
         currentIndex = slideLength-1;
-        $slide.addClass("is-active");
-        $slide.eq(currentIndex).removeClass("is-active");
+        $slide.addClass("is-hidden-slide");
+        $slide.eq(currentIndex).removeClass("is-hidden-slide");
         $currentPage.text((currentIndex+1) + " / 5");
       } else {
         $currentPage.text((currentIndex + 1) + " / 5");
@@ -151,11 +152,15 @@ $(function () {
     }
 
     let prevSlide = () => {
+            console.log("prev");
+
       currentIndex--;
       changeSlide();
     }
 
     let nextSlide = () => {
+            console.log("next");
+
       currentIndex++;
       changeSlide();
     }
