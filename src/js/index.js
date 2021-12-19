@@ -5,63 +5,11 @@ import $ from "jquery";
 
 $(function () {
 
-  const changeColor = () => {
-    $(window).on("scroll", function () {
-      const $headerList = $(".p-header__list");
-      const $headerItem = $(".p-header__item");
-      const $topics = $(".l-topics");
-      const $logo = $(".p-header__logo");
-      const $instagram = $(".p-header__instagram");
-      const $hamburger = $(".c-hamburger span");
-      const $headerLogoWhite = $logo.find(".p-header__logo-white");
-      const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
-
-      $headerList.each(function () {
-        let scroll = $(window).scrollTop();
-        let heightVH = $topics.offset().top-30;
-        if (scroll > heightVH) {
-          $headerList.addClass("is-change-color");
-          // $hamburger.addClass("is-change-bg-color");
-          $instagram.addClass("is-change-color");
-          $hamburger.css({
-            backgroundColor: "#333"
-          });
-          $headerItem.css({
-            borderColor: "#333"
-          });
-          $headerLogoYellow.css({
-            display: "block"
-          });
-          $headerLogoWhite.css({
-            display: "none"
-          });
-        } else {
-          $headerList.removeClass("is-change-color");
-          // $hamburger.removeClass("is-change-bg-color");
-          $instagram.removeClass("is-change-color");
-          $hamburger.css({
-            backgroundColor: "#fff"
-          });
-          $headerItem.css({
-            borderColor: "#fff"
-          });
-          $headerLogoWhite.css({
-            display: "block"
-          });
-          $headerLogoYellow.css({
-            display: "none"
-          });
-        }
-      });
-    });
-  }
-
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = $(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = $(".is-fadeDownAnimeTrigger");
     const fadeLeftAnimeTrigger = $(".is-fadeLeftAnimeTrigger");
     const fadeRightAnimeTrigger = $(".is-fadeRightAnimeTrigger");
-
     $(window).on("scroll", function () {
       fadeUpAnimeTrigger.each(function () {
         let position = $(this).offset().top;
@@ -97,39 +45,6 @@ $(function () {
       });
     });
   };
-
-  const toggleAction = () => {
-    const $hamburger = $(".c-hamburger");
-    const $list = $(".p-header__list");
-    let position;
-    const clickHamburger = () => {
-      $hamburger.toggleClass("is-active");
-      $list.toggleClass("is-open");
-      if ($list.hasClass("is-open")) {
-        $("html").addClass("is-dont-scroll");
-        $(".c-hamburger span").css({
-          backgroundColor: "#333"
-        });
-        $(".p-header__item").css({
-          borderColor: "#333"
-        });
-        position = $(window).scrollTop();
-        $("body").addClass("is-fixed").css({"top": - position});
-
-      } else if (!$list.hasClass("is-open")) {
-        $("html").removeClass("is-dont-scroll");
-        $(".c-hamburger span").css({
-          backgroundColor: "#fff"
-        });
-        $(".p-header__item").css({
-          borderColor: "#fff"
-        });
-        $("body").removeClass("is-fixed").css({"top": 0});
-        window.scrollTo(0, position);
-      }
-    }
-    $hamburger.on("click", clickHamburger);
-  }
 
   const slideShow = () => {
     const $focus = $(".p-slide-show__focus");
@@ -205,19 +120,93 @@ $(function () {
     startTimer();
     setEvent();
   }
-  const smoothScroll = () => {
-    $('a[href^="#"]').click(function(){
-      var speed = 500;
-      var href= $(this).attr("href");
-      var target = $(href == "#" || href == "" ? 'html' : href);
-      var position = target.offset().top;
-      $("html, body").animate({scrollTop:position}, speed, "swing");
-      return false;
+
+  const headerActions = () => {
+    const $hamburger = $(".c-hamburger");
+    const $hamburgerBar = $(".c-hamburger span");
+    const $list = $(".p-header__list");
+    let position;
+    const $headerItem = $(".p-header__item");
+    const $topics = $(".l-topics");
+    const $instagram = $(".p-header__instagram");
+    const $logo = $(".p-header__logo");
+    const $headerLogoWhite = $logo.find(".p-header__logo-white");
+    const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
+
+    const changeColor = () => {
+    $(window).on("scroll", function () {
+      $list.each(function () {
+        let scroll = $(window).scrollTop();
+        let heightVH = $topics.offset().top-30;
+        if (scroll > heightVH) {
+          $list.addClass("is-change-color");
+          $instagram.addClass("is-change-color");
+          $hamburgerBar.css({
+            backgroundColor: "#333"
+          });
+          $headerItem.css({
+            borderColor: "#333"
+          });
+          $headerLogoYellow.css({
+            display: "block"
+          });
+          $headerLogoWhite.css({
+            display: "none"
+          });
+        } else {
+          $list.removeClass("is-change-color");
+          $instagram.removeClass("is-change-color");
+          $hamburgerBar.css({
+            backgroundColor: "#fff"
+          });
+          $headerItem.css({
+            borderColor: "#fff"
+          });
+          $headerLogoWhite.css({
+            display: "block"
+          });
+          $headerLogoYellow.css({
+            display: "none"
+          });
+        }
+      });
     });
+    }
+
+    const clickHamburger = () => {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        $hamburger.toggleClass("is-active");
+        $list.toggleClass("is-list-open");
+        // if ($list.hasClass("is-list-open")) {
+          changeColor();
+          // position = $(window).scrollTop();
+          // $("body").addClass("is-fixed").css({ "top": - position });
+          smoothScroll();
+        // } else if (!$list.hasClass("is-list-open")) {
+          // changeColor();
+        }
+      // }
+    }
+
+    const smoothScroll = () => {
+      $('.p-header__item a[href^="#"]').click(function(){
+        const speed = 1000;
+        const href= $(this).attr("href");
+        const target = $(href == "#" || href == "" ? 'html' : href);
+        let position = target.offset().top;
+        $(".c-hamburger").removeClass("is-active");
+        $(".p-header__list").removeClass("is-list-open");
+        $("html, body").animate({ scrollTop: position }, speed,"swing");
+        // $("body").removeClass("is-fixed").css({"top": 0});
+        // window.scrollTo(0, position);
+        return false;
+      });
+    }
+    $hamburger.on("click", clickHamburger);
+    changeColor();
   }
-  smoothScroll();
-  changeColor();
+
   slideShow();
   fadeUpAnimation();
-  toggleAction();
+  headerActions();
 });

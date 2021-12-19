@@ -18,6 +18,7 @@
     width: 80%;
   }
 }
+
 @keyframes show {
   from {
     opacity: 0;
@@ -26,6 +27,7 @@
     opacity: 1;
   }
 }
+
 .p-header__logo {
   img {
     animation: show 0.5s linear 0s;
@@ -64,7 +66,7 @@
 .p-header__list {
   display: flex;
 
-  &.is-open {
+  &.is-list-open {
     opacity: 1;
     top: 0;
     transition-duration: 0.3s;

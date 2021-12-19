@@ -10983,63 +10983,11 @@ __webpack_require__.r(__webpack_exports__);
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
 
-  const changeColor = () => {
-    jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("scroll", function () {
-      const $headerList = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
-      const $headerItem = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item");
-      const $topics = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".l-topics");
-      const $logo = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__logo");
-      const $instagram = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__instagram");
-      const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span");
-      const $headerLogoWhite = $logo.find(".p-header__logo-white");
-      const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
-
-      $headerList.each(function () {
-        let scroll = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
-        let heightVH = $topics.offset().top-30;
-        if (scroll > heightVH) {
-          $headerList.addClass("is-change-color");
-          // $hamburger.addClass("is-change-bg-color");
-          $instagram.addClass("is-change-color");
-          $hamburger.css({
-            backgroundColor: "#333"
-          });
-          $headerItem.css({
-            borderColor: "#333"
-          });
-          $headerLogoYellow.css({
-            display: "block"
-          });
-          $headerLogoWhite.css({
-            display: "none"
-          });
-        } else {
-          $headerList.removeClass("is-change-color");
-          // $hamburger.removeClass("is-change-bg-color");
-          $instagram.removeClass("is-change-color");
-          $hamburger.css({
-            backgroundColor: "#fff"
-          });
-          $headerItem.css({
-            borderColor: "#fff"
-          });
-          $headerLogoWhite.css({
-            display: "block"
-          });
-          $headerLogoYellow.css({
-            display: "none"
-          });
-        }
-      });
-    });
-  }
-
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeDownAnimeTrigger");
     const fadeLeftAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeLeftAnimeTrigger");
     const fadeRightAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeRightAnimeTrigger");
-
     jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("scroll", function () {
       fadeUpAnimeTrigger.each(function () {
         let position = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).offset().top;
@@ -11075,39 +11023,6 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
       });
     });
   };
-
-  const toggleAction = () => {
-    const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger");
-    const $list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
-    let position;
-    const clickHamburger = () => {
-      $hamburger.toggleClass("is-active");
-      $list.toggleClass("is-open");
-      if ($list.hasClass("is-open")) {
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("html").addClass("is-dont-scroll");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span").css({
-          backgroundColor: "#333"
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item").css({
-          borderColor: "#333"
-        });
-        position = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("body").addClass("is-fixed").css({"top": - position});
-
-      } else if (!$list.hasClass("is-open")) {
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("html").removeClass("is-dont-scroll");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span").css({
-          backgroundColor: "#fff"
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item").css({
-          borderColor: "#fff"
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("body").removeClass("is-fixed").css({"top": 0});
-        window.scrollTo(0, position);
-      }
-    }
-    $hamburger.on("click", clickHamburger);
-  }
 
   const slideShow = () => {
     const $focus = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-slide-show__focus");
@@ -11183,21 +11098,95 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     startTimer();
     setEvent();
   }
-  const smoothScroll = () => {
-    jquery__WEBPACK_IMPORTED_MODULE_1___default()('a[href^="#"]').click(function(){
-      var speed = 500;
-      var href= jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr("href");
-      var target = jquery__WEBPACK_IMPORTED_MODULE_1___default()(href == "#" || href == "" ? 'html' : href);
-      var position = target.offset().top;
-      jquery__WEBPACK_IMPORTED_MODULE_1___default()("html, body").animate({scrollTop:position}, speed, "swing");
-      return false;
+
+  const headerActions = () => {
+    const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger");
+    const $hamburgerBar = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span");
+    const $list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
+    let position;
+    const $headerItem = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item");
+    const $topics = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".l-topics");
+    const $instagram = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__instagram");
+    const $logo = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__logo");
+    const $headerLogoWhite = $logo.find(".p-header__logo-white");
+    const $headerLogoYellow = $logo.find(".p-header__logo-yellow");
+
+    const changeColor = () => {
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("scroll", function () {
+      $list.each(function () {
+        let scroll = jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
+        let heightVH = $topics.offset().top-30;
+        if (scroll > heightVH) {
+          $list.addClass("is-change-color");
+          $instagram.addClass("is-change-color");
+          $hamburgerBar.css({
+            backgroundColor: "#333"
+          });
+          $headerItem.css({
+            borderColor: "#333"
+          });
+          $headerLogoYellow.css({
+            display: "block"
+          });
+          $headerLogoWhite.css({
+            display: "none"
+          });
+        } else {
+          $list.removeClass("is-change-color");
+          $instagram.removeClass("is-change-color");
+          $hamburgerBar.css({
+            backgroundColor: "#fff"
+          });
+          $headerItem.css({
+            borderColor: "#fff"
+          });
+          $headerLogoWhite.css({
+            display: "block"
+          });
+          $headerLogoYellow.css({
+            display: "none"
+          });
+        }
+      });
     });
+    }
+
+    const clickHamburger = () => {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        $hamburger.toggleClass("is-active");
+        $list.toggleClass("is-list-open");
+        // if ($list.hasClass("is-list-open")) {
+          changeColor();
+          // position = $(window).scrollTop();
+          // $("body").addClass("is-fixed").css({ "top": - position });
+          smoothScroll();
+        // } else if (!$list.hasClass("is-list-open")) {
+          // changeColor();
+        }
+      // }
+    }
+
+    const smoothScroll = () => {
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('.p-header__item a[href^="#"]').click(function(){
+        const speed = 1000;
+        const href= jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr("href");
+        const target = jquery__WEBPACK_IMPORTED_MODULE_1___default()(href == "#" || href == "" ? 'html' : href);
+        let position = target.offset().top;
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger").removeClass("is-active");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list").removeClass("is-list-open");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("html, body").animate({ scrollTop: position }, speed,"swing");
+        // $("body").removeClass("is-fixed").css({"top": 0});
+        // window.scrollTo(0, position);
+        return false;
+      });
+    }
+    $hamburger.on("click", clickHamburger);
+    changeColor();
   }
-  smoothScroll();
-  changeColor();
+
   slideShow();
   fadeUpAnimation();
-  toggleAction();
+  headerActions();
 });
 
 }();
