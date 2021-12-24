@@ -10978,11 +10978,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
 
-// import progressbarjs from "progressbar.js"
-
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
-
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".is-fadeDownAnimeTrigger");
@@ -11103,7 +11100,6 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     const $hamburger = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger");
     const $hamburgerBar = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger span");
     const $list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list");
-    let position;
     const $headerItem = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__item");
     const $topics = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".l-topics");
     const $instagram = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__instagram");
@@ -11152,36 +11148,25 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
     }
 
     const clickHamburger = () => {
-      if (window.matchMedia('(max-width: 768px)').matches) {
         $hamburger.toggleClass("is-active");
         $list.toggleClass("is-list-open");
-        // if ($list.hasClass("is-list-open")) {
-          changeColor();
-          // position = $(window).scrollTop();
-          // $("body").addClass("is-fixed").css({ "top": - position });
-          smoothScroll();
-        // } else if (!$list.hasClass("is-list-open")) {
-          // changeColor();
-        }
-      // }
     }
 
     const smoothScroll = () => {
-      jquery__WEBPACK_IMPORTED_MODULE_1___default()('.p-header__item a[href^="#"]').click(function(){
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('.p-header__list a[href^="#"]').click(function(){
         const speed = 1000;
-        const href= jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr("href");
+        const href = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr("href");
         const target = jquery__WEBPACK_IMPORTED_MODULE_1___default()(href == "#" || href == "" ? 'html' : href);
         let position = target.offset().top;
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("html, body").animate({ scrollTop: position }, speed, "swing");
         jquery__WEBPACK_IMPORTED_MODULE_1___default()(".c-hamburger").removeClass("is-active");
         jquery__WEBPACK_IMPORTED_MODULE_1___default()(".p-header__list").removeClass("is-list-open");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("html, body").animate({ scrollTop: position }, speed,"swing");
-        // $("body").removeClass("is-fixed").css({"top": 0});
-        // window.scrollTo(0, position);
         return false;
       });
     }
-    $hamburger.on("click", clickHamburger);
     changeColor();
+    $hamburger.on("click", clickHamburger);
+    smoothScroll();
   }
 
   slideShow();

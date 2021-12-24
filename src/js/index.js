@@ -1,10 +1,7 @@
 import "../scss/style.scss";
 import $ from "jquery";
-// import progressbarjs from "progressbar.js"
-
 
 $(function () {
-
   const fadeUpAnimation = () => {
     const fadeUpAnimeTrigger = $(".is-fadeUpAnimeTrigger");
     const fadeDownAnimeTrigger = $(".is-fadeDownAnimeTrigger");
@@ -125,7 +122,6 @@ $(function () {
     const $hamburger = $(".c-hamburger");
     const $hamburgerBar = $(".c-hamburger span");
     const $list = $(".p-header__list");
-    let position;
     const $headerItem = $(".p-header__item");
     const $topics = $(".l-topics");
     const $instagram = $(".p-header__instagram");
@@ -174,36 +170,25 @@ $(function () {
     }
 
     const clickHamburger = () => {
-      if (window.matchMedia('(max-width: 768px)').matches) {
         $hamburger.toggleClass("is-active");
         $list.toggleClass("is-list-open");
-        // if ($list.hasClass("is-list-open")) {
-          changeColor();
-          // position = $(window).scrollTop();
-          // $("body").addClass("is-fixed").css({ "top": - position });
-          smoothScroll();
-        // } else if (!$list.hasClass("is-list-open")) {
-          // changeColor();
-        }
-      // }
     }
 
     const smoothScroll = () => {
-      $('.p-header__item a[href^="#"]').click(function(){
+      $('.p-header__list a[href^="#"]').click(function(){
         const speed = 1000;
-        const href= $(this).attr("href");
+        const href = $(this).attr("href");
         const target = $(href == "#" || href == "" ? 'html' : href);
         let position = target.offset().top;
+        $("html, body").animate({ scrollTop: position }, speed, "swing");
         $(".c-hamburger").removeClass("is-active");
         $(".p-header__list").removeClass("is-list-open");
-        $("html, body").animate({ scrollTop: position }, speed,"swing");
-        // $("body").removeClass("is-fixed").css({"top": 0});
-        // window.scrollTo(0, position);
         return false;
       });
     }
-    $hamburger.on("click", clickHamburger);
     changeColor();
+    $hamburger.on("click", clickHamburger);
+    smoothScroll();
   }
 
   slideShow();
